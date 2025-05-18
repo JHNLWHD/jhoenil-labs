@@ -1,0 +1,70 @@
+
+import React from 'react';
+
+interface TestimonialProps {
+  quote: string;
+  author: string;
+  position: string;
+  avatarIndex: number;
+}
+
+const Testimonial: React.FC<TestimonialProps> = ({ quote, author, position, avatarIndex }) => {
+  return (
+    <div className="testimonial-card">
+      <div className="mb-6">
+        <img 
+          src={`https://randomuser.me/api/portraits/men/${avatarIndex}.jpg`} 
+          alt={author}
+          className="w-12 h-12 rounded-full object-cover"
+        />
+      </div>
+      <p className="text-gray-700 mb-6 text-sm md:text-base italic">"{quote}"</p>
+      <p className="font-semibold text-sm">{author}</p>
+      <p className="text-gray-500 text-xs">{position}</p>
+    </div>
+  );
+};
+
+const TestimonialsSection = () => {
+  const testimonials = [
+    {
+      quote: "Jhonty turned our vision into a beautiful, scalable product. The React components he built are incredibly user-friendly.",
+      author: "Kathy S.",
+      position: "Product Head, Fintech Co.",
+      avatarIndex: 32
+    },
+    {
+      quote: "The mobile health app exceeded our expectations. Jhonty is a true expert in React Native development.",
+      author: "David L.",
+      position: "Health-Tech Startup",
+      avatarIndex: 45
+    },
+    {
+      quote: "Our e-commerce app feels world-class. Flawless execution with consistent path throughout development.",
+      author: "Mark T.",
+      position: "CEO, Retail Company",
+      avatarIndex: 67
+    }
+  ];
+
+  return (
+    <section className="bg-gray-50 py-16 md:py-20 px-4 md:px-12">
+      <div className="container mx-auto max-w-7xl">
+        <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center">What Clients Say</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {testimonials.map((testimonial, index) => (
+            <Testimonial
+              key={index}
+              quote={testimonial.quote}
+              author={testimonial.author}
+              position={testimonial.position}
+              avatarIndex={testimonial.avatarIndex}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default TestimonialsSection;
