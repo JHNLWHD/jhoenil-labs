@@ -28,21 +28,21 @@ const Testimonial: React.FC<TestimonialProps> = ({ quote, author, position, avat
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      quote: "Jhonty turned our vision into a beautiful, scalable product. The React components he built are incredibly user-friendly.",
-      author: "Kathy S.",
-      position: "Product Head, Fintech Co.",
+      quote: "Jhoenil delivered a sophisticated web platform that exceeded our expectations. His technical expertise and problem-solving skills were invaluable.",
+      author: "Michael R.",
+      position: "CTO, Fintech Startup",
       avatarIndex: 32
     },
     {
-      quote: "The mobile health app exceeded our expectations. Jhonty is a true expert in React Native development.",
-      author: "David L.",
-      position: "Health-Tech Startup",
+      quote: "Working with Jhoenil was a game-changer for our healthcare app. He brought innovative ideas and flawless execution to the project.",
+      author: "Sarah L.",
+      position: "Product Manager, Health-Tech",
       avatarIndex: 45
     },
     {
-      quote: "Our e-commerce app feels world-class. Flawless execution with consistent path throughout development.",
-      author: "Mark T.",
-      position: "CEO, Retail Company",
+      quote: "Jhoenil's technical leadership transformed our development process. Our team is now more efficient and our product much more stable.",
+      author: "David K.",
+      position: "Engineering Director, E-commerce",
       avatarIndex: 67
     }
   ];

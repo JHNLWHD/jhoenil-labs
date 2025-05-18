@@ -40,20 +40,20 @@ const ContactSection = () => {
           <div>
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Get In Touch</h2>
             <p className="text-gray-600 mb-8">
-              Ready to collaborate or have a project in mind? Reach out 
-              and let's build something amazing together.
+              Have a project in mind or want to explore opportunities for collaboration? Feel free to reach out.
+              I'm always open to discussing new projects and ideas.
             </p>
             
             <div className="space-y-4 mb-8">
               <div className="flex items-center">
                 <Mail className="w-5 h-5 text-gray-600 mr-3" />
-                <a href="mailto:jhontyd@gmail.com" className="text-gray-700 hover:text-blue-600">
-                  jhontyd@gmail.com
+                <a href="mailto:contact@jhoenilwahid.com" className="text-gray-700 hover:text-blue-600">
+                  contact@jhoenilwahid.com
                 </a>
               </div>
               <div className="flex items-center">
                 <MapPin className="w-5 h-5 text-gray-600 mr-3" />
-                <span className="text-gray-700">Jakarta, Indonesia</span>
+                <span className="text-gray-700">San Francisco, California</span>
               </div>
             </div>
             

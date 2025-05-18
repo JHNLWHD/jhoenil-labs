@@ -50,10 +50,10 @@ const PortfolioSection = () => {
   return (
     <section id="portfolio" className="py-16 md:py-20 px-4 md:px-12">
       <div className="container mx-auto max-w-7xl">
-        <div className="flex justify-between items-end mb-12">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
           <div>
             <h2 className="text-2xl md:text-3xl font-bold mb-3">Portfolio Highlights</h2>
-            <p className="text-gray-600">A peek into my recent projects using React.js, React Native, and Flutter.</p>
+            <p className="text-gray-600">Selected projects showcasing my expertise and problem-solving approach.</p>
           </div>
           <div className="hidden md:block">
             <a href="#" className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800">
