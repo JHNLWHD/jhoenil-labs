@@ -34,11 +34,11 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-20 px-4 md:px-12">
+    <section id="contact" className="py-16 md:py-20 px-4 md:px-12" aria-labelledby="contact-heading">
       <div className="container mx-auto max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">Get In Touch</h2>
+            <h2 id="contact-heading" className="text-2xl md:text-3xl font-bold mb-6">Get In Touch</h2>
             <p className="text-gray-600 mb-8">
               Have a project in mind or want to explore opportunities for collaboration? Feel free to reach out.
               I'm always open to discussing new projects and ideas.
@@ -46,23 +46,23 @@ const ContactSection = () => {
             
             <div className="space-y-4 mb-8">
               <div className="flex items-center">
-                <Mail className="w-5 h-5 text-gray-600 mr-3" />
+                <Mail className="w-5 h-5 text-gray-600 mr-3" aria-hidden="true" />
                 <a href="mailto:contact@jhoenilwahid.com" className="text-gray-700 hover:text-blue-600">
                   contact@jhoenilwahid.com
                 </a>
               </div>
               <div className="flex items-center">
-                <MapPin className="w-5 h-5 text-gray-600 mr-3" />
+                <MapPin className="w-5 h-5 text-gray-600 mr-3" aria-hidden="true" />
                 <span className="text-gray-700">San Francisco, California</span>
               </div>
             </div>
             
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-600 hover:text-gray-900">
-                <Github className="w-5 h-5" />
+              <a href="#" className="text-gray-600 hover:text-gray-900" aria-label="GitHub Profile">
+                <Github className="w-5 h-5" aria-hidden="true" />
               </a>
-              <a href="#" className="text-gray-600 hover:text-gray-900">
-                <Twitter className="w-5 h-5" />
+              <a href="#" className="text-gray-600 hover:text-gray-900" aria-label="Twitter Profile">
+                <Twitter className="w-5 h-5" aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -71,7 +71,9 @@ const ContactSection = () => {
             <h2 className="text-2xl font-bold mb-6">Send Message</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
+                <label htmlFor="name" className="sr-only">Your name</label>
                 <Input
+                  id="name"
                   type="text"
                   name="name"
                   placeholder="Your name"
@@ -82,7 +84,9 @@ const ContactSection = () => {
                 />
               </div>
               <div>
+                <label htmlFor="email" className="sr-only">Your email address</label>
                 <Input
+                  id="email"
                   type="email"
                   name="email"
                   placeholder="Your email address"
@@ -93,7 +97,9 @@ const ContactSection = () => {
                 />
               </div>
               <div>
+                <label htmlFor="message" className="sr-only">Your message</label>
                 <Textarea
+                  id="message"
                   name="message"
                   placeholder="Your message"
                   value={formData.message}

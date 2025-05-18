@@ -10,7 +10,7 @@ const PortfolioItem = ({ icon: Icon, title, description, link }: {
 }) => {
   return (
     <div className="portfolio-card">
-      <div className="portfolio-icon text-blue-600 mb-6">
+      <div className="portfolio-icon text-blue-600 mb-6" aria-hidden="true">
         <Icon className="w-6 h-6" />
       </div>
       <h3 className="font-bold text-lg mb-2">{title}</h3>
@@ -18,8 +18,9 @@ const PortfolioItem = ({ icon: Icon, title, description, link }: {
       <a 
         href={link}
         className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800"
+        aria-label={`View ${title} project`}
       >
-        View Project <ArrowRight className="ml-2 w-4 h-4" />
+        View Project <ArrowRight className="ml-2 w-4 h-4" aria-hidden="true" />
       </a>
     </div>
   );
@@ -48,16 +49,16 @@ const PortfolioSection = () => {
   ];
 
   return (
-    <section id="portfolio" className="py-16 md:py-20 px-4 md:px-12">
+    <section id="portfolio" className="py-16 md:py-20 px-4 md:px-12" aria-labelledby="portfolio-heading">
       <div className="container mx-auto max-w-7xl">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-3">Portfolio Highlights</h2>
+            <h2 id="portfolio-heading" className="text-2xl md:text-3xl font-bold mb-3">Portfolio Highlights</h2>
             <p className="text-gray-600">Selected projects showcasing my expertise and problem-solving approach.</p>
           </div>
           <div className="hidden md:block">
-            <a href="#" className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800">
-              See All Projects <ArrowRight className="ml-2 w-4 h-4" />
+            <a href="#" className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800" aria-label="View all portfolio projects">
+              See All Projects <ArrowRight className="ml-2 w-4 h-4" aria-hidden="true" />
             </a>
           </div>
         </div>
@@ -75,8 +76,8 @@ const PortfolioSection = () => {
         </div>
         
         <div className="mt-8 md:hidden">
-          <a href="#" className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800">
-            See All Projects <ArrowRight className="ml-2 w-4 h-4" />
+          <a href="#" className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800" aria-label="View all portfolio projects">
+            See All Projects <ArrowRight className="ml-2 w-4 h-4" aria-hidden="true" />
           </a>
         </div>
       </div>

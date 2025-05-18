@@ -14,8 +14,11 @@ const Testimonial: React.FC<TestimonialProps> = ({ quote, author, position, avat
       <div className="mb-6">
         <img 
           src={`https://randomuser.me/api/portraits/men/${avatarIndex}.jpg`} 
-          alt={author}
+          alt={`${author} portrait`}
           className="w-12 h-12 rounded-full object-cover"
+          loading="lazy"
+          width="48"
+          height="48"
         />
       </div>
       <p className="text-gray-700 mb-6 text-sm md:text-base italic">"{quote}"</p>
@@ -48,9 +51,9 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="bg-gray-50 py-16 md:py-20 px-4 md:px-12">
+    <section className="bg-gray-50 py-16 md:py-20 px-4 md:px-12" aria-labelledby="testimonials-heading">
       <div className="container mx-auto max-w-7xl">
-        <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center">What Clients Say</h2>
+        <h2 id="testimonials-heading" className="text-2xl md:text-3xl font-bold mb-12 text-center">What Clients Say</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
             <Testimonial

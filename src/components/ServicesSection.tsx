@@ -28,10 +28,10 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-16 md:py-20 px-4 md:px-12 bg-gray-50">
+    <section id="services" className="py-16 md:py-20 px-4 md:px-12 bg-gray-50" aria-labelledby="services-heading">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">My Services</h2>
+          <h2 id="services-heading" className="text-3xl font-bold mb-4">My Services</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             I offer comprehensive solutions tailored to meet your specific technology needs and business goals.
           </p>
@@ -41,7 +41,7 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <Card key={index} className="border-0 shadow-md hover:shadow-lg transition-shadow">
               <CardHeader>
-                <div className="bg-blue-100 rounded-xl p-3 inline-flex items-center justify-center mb-4">
+                <div className="bg-blue-100 rounded-xl p-3 inline-flex items-center justify-center mb-4" aria-hidden="true">
                   <service.icon className="w-6 h-6 text-blue-600" />
                 </div>
                 <CardTitle>{service.title}</CardTitle>
