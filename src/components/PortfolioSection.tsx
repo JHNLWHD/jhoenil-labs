@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { ArrowRight, Laptop, Heart, ShoppingCart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const PortfolioItem = ({ icon: Icon, title, description, link }: { 
   icon: React.ElementType, 
@@ -57,9 +58,9 @@ const PortfolioSection = () => {
             <p className="text-gray-600">Selected projects showcasing my expertise and problem-solving approach.</p>
           </div>
           <div className="hidden md:block">
-            <a href="#" className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800" aria-label="View all portfolio projects">
+            <Link to="/projects" className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800" aria-label="View all portfolio projects">
               See All Projects <ArrowRight className="ml-2 w-4 h-4" aria-hidden="true" />
-            </a>
+            </Link>
           </div>
         </div>
         
@@ -76,9 +77,9 @@ const PortfolioSection = () => {
         </div>
         
         <div className="mt-8 md:hidden">
-          <a href="#" className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800" aria-label="View all portfolio projects">
+          <Link to="/projects" className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800" aria-label="View all portfolio projects">
             See All Projects <ArrowRight className="ml-2 w-4 h-4" aria-hidden="true" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>
