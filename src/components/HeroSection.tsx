@@ -13,7 +13,7 @@ const HeroSection = () => {
               Senior Software Engineer<br />&amp; Tech Consultant
             </h1>
             <p className="text-gray-700 mb-8 max-w-lg">
-              I'm <strong>Jhoenil Wahid</strong> - a passionate software engineer and consultant with expertise in modern web technologies, DevOps, technical leadership, and AI solutions. I help businesses transform their digital presence with cutting-edge technology.
+              I'm <strong>Jhoenil Wahid</strong> - a passionate software engineer and consultant with expertise in modern web technologies, DevOps, technical leadership, and AI solutions. I help businesses transform their digital presence with technology.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button className="bg-gray-900 hover:bg-gray-800" onClick={() => document.getElementById('portfolio')?.scrollIntoView({behavior: 'smooth'})}>
@@ -28,10 +28,9 @@ const HeroSection = () => {
             <div className="relative">
               <div className="bg-white p-1 rounded-xl shadow-lg">
                 <img 
-                  src="/placeholder.svg" 
-                  alt="Jhoenil Wahid - Senior Software Engineer and Tech Consultant" 
+                  src="/jhoenil_labs.png"
+                  alt="Jhoenil Labs Logo"
                   className="w-full max-w-sm h-auto rounded-lg"
-                  style={{ aspectRatio: '4/5' }}
                 />
               </div>
             </div>
