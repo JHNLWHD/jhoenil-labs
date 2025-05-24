@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="container mx-auto max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <div className="font-bold text-xl mb-4">Jhoenil Wahid</div>
+            <div className="font-bold text-xl mb-4">Jhoenil Labs</div>
             <p className="text-gray-400 text-sm mb-4">
               Senior Software Engineer & Tech Consultant: Transforming systems, empowering businesses.
             </p>
