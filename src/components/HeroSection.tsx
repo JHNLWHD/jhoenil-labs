@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 
@@ -13,7 +12,7 @@ const HeroSection = () => {
               Senior Software Engineer<br />&amp; Tech Consultant
             </h1>
             <p className="text-gray-700 mb-8 max-w-lg">
-              I'm <strong>Jhoenil Wahid</strong> - a passionate software engineer and consultant with expertise in modern web technologies, DevOps, technical leadership, and AI solutions. I help businesses transform their digital presence with technology.
+              I'm <strong>Jhoenil Wahid</strong> - a seasoned senior software engineer and consultant with expertise in modern web and mobile technologies, DevOps, technical leadership, AI solutions, and data engineering. I specialize in building scalable systems, automations, and impactful systems to help businesses thrive.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button className="bg-gray-900 hover:bg-gray-800" onClick={() => document.getElementById('portfolio')?.scrollIntoView({behavior: 'smooth'})}>

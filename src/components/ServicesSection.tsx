@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Smartphone, Cloud, Briefcase, Brain } from 'lucide-react';
@@ -7,22 +6,27 @@ const services = [
   {
     icon: Smartphone,
     title: "Web & Mobile Development",
-    description: "Custom web applications, responsive websites, and cross-platform mobile apps built with modern frameworks and best practices."
+    description: "I create custom web applications, responsive websites, and cross-platform mobile apps using modern frameworks and best practices."
   },
   {
     icon: Cloud,
-    title: "DevOps & Cloud",
-    description: "Cloud infrastructure setup, CI/CD pipeline implementation, containerization, and deployment automation for seamless operations."
+    title: "DevOps & Cloud Solutions",
+    description: "I specialize in cloud infrastructure setup, CI/CD pipelines, containerization, and deployment automation for seamless operations."
   },
   {
     icon: Briefcase,
     title: "Technical Leadership",
-    description: "Team leadership, technical strategy, architecture design, and mentoring to drive successful project delivery and team growth."
+    description: "I provide team leadership, technical strategy, architecture design, and mentoring to ensure successful project delivery and team growth."
   },
   {
     icon: Brain,
-    title: "AI Solutions",
-    description: "Integration of AI technologies, machine learning solutions, and data analytics to create intelligent applications and automate processes."
+    title: "Artificial Intelligence",
+    description: "I integrate AI technologies to develop intelligent applications and automate complex processes."
+  },
+  {
+    icon: Cloud,
+    title: "Data Engineering",
+    description: "I build dashboards, systems, and automations in Google Sheets to streamline workflows and enable data-driven decision-making."
   }
 ];
 
@@ -37,14 +41,14 @@ const ServicesSection = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
           {services.map((service, index) => (
             <Card key={index} className="border-0 shadow-md hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="bg-blue-100 rounded-xl p-3 inline-flex items-center justify-center mb-4" aria-hidden="true">
                   <service.icon className="w-6 h-6 text-blue-600" />
                 </div>
-                <CardTitle>{service.title}</CardTitle>
+                <CardTitle className="min-h-12 flex items-center justify-center">{service.title}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-gray-600">{service.description}</CardDescription>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Laptop, Heart, ShoppingCart } from 'lucide-react';
+import { ArrowRight, Laptop, Smartphone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const PortfolioItem = ({ icon: Icon, title, description, link }: { 
@@ -38,19 +38,19 @@ const PortfolioSection = () => {
       link: 'https://kodigoeleksyon2025.netlify.app/'
     },
     {
-      icon: Heart,
+      icon: Laptop,
       title: 'Pilipinas Rotaract MDIO Website',
       description: 'The official website for Pilipinas Rotaract MDIO, highlighting their mission, initiatives, and organizational achievements.',
       link: 'https://mdio-pilipinas.netlify.app/'
     },
     {
-      icon: ShoppingCart,
+      icon: Laptop,
       title: 'Rotaract Club of Zamboanga City West Website',
       description: 'A dedicated platform for the Rotaract Club of Zamboanga City West to showcase their projects, events, and community impact.',
       link: 'https://rotaract-zambo-city-west.netlify.app/'
     },
     {
-      icon: Heart,
+      icon: Smartphone,
       title: 'Spayce',
       description: 'A feature-rich rent collection app offering reminders, bookkeeping, and tracking. Key features include automated notifications for tenants and landlords, ensuring seamless rental management.',
       link: 'https://play.google.com/store/apps/details?id=ph.spayce.owner&hl=fil'

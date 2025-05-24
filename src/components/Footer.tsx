@@ -11,7 +11,7 @@ const Footer = () => {
           <div>
             <div className="font-bold text-xl mb-4">Jhoenil Wahid</div>
             <p className="text-gray-400 text-sm mb-4">
-              Senior Software Engineer & Tech Consultant helping businesses transform their digital presence.
+              Senior Software Engineer & Tech Consultant: Transforming systems, empowering businesses.
             </p>
           </div>
           
@@ -29,12 +29,9 @@ const Footer = () => {
             <h3 className="font-medium mb-4">Connect</h3>
             <div className="flex space-x-4 mb-4">
               <a href="#" className="text-gray-400 hover:text-white text-sm">LinkedIn</a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm">Github</a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm">Twitter</a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm">Dribbble</a>
             </div>
             <p className="text-xs text-gray-500">
-              © {currentYear} Jhoenil Wahid. All rights reserved.
+              © {currentYear} Jhoenil Labs. All rights reserved.
             </p>
           </div>
         </div>
