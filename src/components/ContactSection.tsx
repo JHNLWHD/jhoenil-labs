@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { MapPin, Mail, Twitter, Github } from 'lucide-react';
+import { MapPin, Mail, Twitter, Github, Linkedin, Facebook } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
+import {Link} from "react-router-dom";
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -79,12 +80,12 @@ const ContactSection = () => {
             </div>
             
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-600 hover:text-gray-900" aria-label="GitHub Profile">
-                <Github className="w-5 h-5" aria-hidden="true" />
-              </a>
-              <a href="#" className="text-gray-600 hover:text-gray-900" aria-label="Twitter Profile">
-                <Twitter className="w-5 h-5" aria-hidden="true" />
-              </a>
+              <Link to="https://www.linkedin.com/in/jhoenilwahid/" target="_blank" className="text-gray-600 hover:text-gray-900" aria-label="LinkedIn Profile">
+                <Linkedin className="w-5 h-5" aria-hidden="true" />
+              </Link>
+              <Link to="https://www.facebook.com/aljhoenil.wahid/" target="_blank" className="text-gray-600 hover:text-gray-900" aria-label="Facebook Profile">
+                <Facebook className="w-5 h-5" aria-hidden="true" />
+              </Link>
             </div>
           </div>
           

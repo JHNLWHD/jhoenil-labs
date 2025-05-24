@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -18,17 +18,18 @@ const Footer = () => {
           <div>
             <h3 className="font-medium mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="#about" className="text-gray-400 hover:text-white text-sm">About</a></li>
-              <li><a href="#services" className="text-gray-400 hover:text-white text-sm">Services</a></li>
-              <li><a href="#portfolio" className="text-gray-400 hover:text-white text-sm">Portfolio</a></li>
-              <li><a href="#contact" className="text-gray-400 hover:text-white text-sm">Contact</a></li>
+              <li><Link to="#about" className="text-gray-400 hover:text-white text-sm">About</Link></li>
+              <li><Link to="#services" className="text-gray-400 hover:text-white text-sm">Services</Link></li>
+              <li><Link to="#portfolio" className="text-gray-400 hover:text-white text-sm">Portfolio</Link></li>
+              <li><Link to="#contact" className="text-gray-400 hover:text-white text-sm">Contact</Link></li>
             </ul>
           </div>
           
           <div>
             <h3 className="font-medium mb-4">Connect</h3>
             <div className="flex space-x-4 mb-4">
-              <a href="#" className="text-gray-400 hover:text-white text-sm">LinkedIn</a>
+              <Link to="https://www.linkedin.com/in/jhoenilwahid/" target="_blank" className="text-gray-400 hover:text-white text-sm">LinkedIn</Link>
+              <Link to="https://www.facebook.com/aljhoenil.wahid/" target="_blank" className="text-gray-400 hover:text-white text-sm">Facebook</Link>
             </div>
             <p className="text-xs text-gray-500">
               © {currentYear} Jhoenil Labs. All rights reserved.
