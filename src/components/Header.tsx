@@ -12,7 +12,7 @@ const Header = () => {
     <header className="py-4 px-4 md:px-8 flex justify-between items-center sticky top-0 bg-white/90 backdrop-blur-sm z-50 shadow-sm">
       <div className="font-bold text-xl">
         <a href="/" className="flex items-center gap-2" aria-label="Jhoenil Wahid Home">
-          <img src="/public/jhoenil_labs.png" alt="Jhoenil Labs Logo" className="h-12 w-auto" />
+          <img src="jhoenil_labs.png" alt="Jhoenil Labs Logo" className="h-12 w-auto" />
         </a>
       </div>
       
