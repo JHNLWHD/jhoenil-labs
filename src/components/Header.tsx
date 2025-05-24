@@ -1,6 +1,4 @@
-
 import React, { useState } from 'react';
-import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 
 const Header = () => {
@@ -14,7 +12,7 @@ const Header = () => {
     <header className="py-4 px-4 md:px-8 flex justify-between items-center sticky top-0 bg-white/90 backdrop-blur-sm z-50 shadow-sm">
       <div className="font-bold text-xl">
         <a href="/" className="flex items-center gap-2" aria-label="Jhoenil Wahid Home">
-          <span className="bg-gray-900 text-white text-xs px-2 py-1 rounded-md">Jhoenil Wahid</span>
+          <img src="/public/jhoenil_labs.png" alt="Jhoenil Labs Logo" className="h-12 w-auto" />
         </a>
       </div>
       
