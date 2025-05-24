@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -19,18 +18,40 @@ const ContactSection = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would normally send the form data to a server
-    console.log('Form submitted:', formData);
-    
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-    
-    // Reset form
-    setFormData({ name: '', email: '', message: '' });
+
+    const form = e.target as HTMLFormElement;
+    const formDataObj = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formDataObj as unknown as Record<string, string>).toString(),
+      });
+
+      if (response.ok) {
+        toast({
+          title: 'Message Sent!',
+          description: "Thank you for reaching out. I'll get back to you soon.",
+        });
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        console.error(response);
+        toast({
+          title: 'Submission Failed',
+          description: 'There was an issue submitting your message. Please try again.',
+          variant: 'destructive',
+        });
+      }
+    } catch (error) {
+      toast({
+        title: 'Submission Error',
+        description: 'An unexpected error occurred. Please try again later.',
+        variant: 'destructive',
+      });
+    }
   };
 
   return (
@@ -47,13 +68,13 @@ const ContactSection = () => {
             <div className="space-y-4 mb-8">
               <div className="flex items-center">
                 <Mail className="w-5 h-5 text-gray-600 mr-3" aria-hidden="true" />
-                <a href="mailto:contact@jhoenilwahid.com" className="text-gray-700 hover:text-blue-600">
-                  contact@jhoenilwahid.com
+                <a href="mailto:aljhoenilw@gmail.com" className="text-gray-700 hover:text-blue-600">
+                  aljhoenilw@gmail.com
                 </a>
               </div>
               <div className="flex items-center">
                 <MapPin className="w-5 h-5 text-gray-600 mr-3" aria-hidden="true" />
-                <span className="text-gray-700">San Francisco, California</span>
+                <span className="text-gray-700">Philippines</span>
               </div>
             </div>
             
@@ -69,7 +90,8 @@ const ContactSection = () => {
           
           <div>
             <h2 className="text-2xl font-bold mb-6">Send Message</h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" name="contact">
+              <input type="hidden" name="form-name" value="contact" />
               <div>
                 <label htmlFor="name" className="sr-only">Your name</label>
                 <Input
