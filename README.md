@@ -1,24 +1,47 @@
-# Welcome to your Lovable project
+# Jhoenil Labs
 
-## Project info
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f51cac39-0d45-43b4-8cb3-d7b285e92303/deploy-status)](https://app.netlify.com/projects/jhoenil-labs/deploys)
+![Website](https://img.shields.io/website?url=https%3A%2F%2Fjhoenil-labs.netlify.app%2F)
 
-**URL**: https://lovable.dev/projects/f02dd803-832c-4682-ac78-829ff96e1716
+![Jhoenil Labs Logo](public/jhoenil_labs.png)
 
-## How can I edit this code?
+## Project Overview
 
-There are several ways of editing your application.
+**Jhoenil Labs** is the portfolio of Jhoenil Wahid, a senior software engineer and consultant specializing in helping businesses leverage modern technology. My expertise includes web and mobile development, DevOps, technical leadership, AI-powered solutions, and data engineering. I am passionate about building scalable systems, streamlining operations through automation, and creating impactful technology solutions that lead to tangible business growth.
 
-**Use Lovable**
+## Project Info
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f02dd803-832c-4682-ac78-829ff96e1716) and start prompting.
+**URL**: [https://jhoenil-labs.netlify.app/](https://jhoenil-labs.netlify.app/)
 
-Changes made via Lovable will be committed automatically to this repo.
+## Features
 
-**Use your preferred IDE**
+- **Responsive Design**: Optimized for both mobile and desktop devices.
+- **Modern UI Components**: Built with reusable and accessible components.
+- **Fast Development**: Leveraging Vite for quick builds and hot module replacement.
+- **Customizable**: Easily extendable for new features and designs.
+- **SEO Optimized**: Includes meta tags and sitemap for better search engine visibility.
+- **Progressive Web App (PWA)**: Installable on mobile devices.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Tech Stack
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+This project is built with:
+
+- [Vite](https://vitejs.dev/): For fast development and optimized builds.
+- [TypeScript](https://www.typescriptlang.org/): For type safety and better developer experience.
+- [React](https://react.dev/): UI library for building component-based interfaces.
+- [Tailwind CSS](https://tailwindcss.com/): Utility-first CSS framework for styling.
+- [shadcn/ui](https://shadcn.dev/): Reusable component library built on Radix UI.
+- [Bun](https://bun.sh/): JavaScript runtime and package manager.
+- [PostCSS](https://postcss.org/): For CSS processing and optimization.
+- [ESLint](https://eslint.org/): For code quality and consistency.
+
+## How to Edit This Code
+
+### Use Your Preferred IDE
+
+If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in your deployment.
+
+The only requirement is having Node.js & Bun installed - [install Bun](https://bun.sh/)
 
 Follow these steps:
 
@@ -30,44 +53,32 @@ git clone <YOUR_GIT_URL>
 cd <YOUR_PROJECT_NAME>
 
 # Step 3: Install the necessary dependencies.
-npm i
+bun install
 
 # Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+bun dev
 ```
 
-**Edit a file directly in GitHub**
+## Deployment
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+The app is deployed on Netlify as a Single Page Application (SPA). To deploy:
 
-**Use GitHub Codespaces**
+```sh
+# Build the project
+bun run build
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# The build output will be in the dist/ directory
+```
 
-## What technologies are used for this project?
+You can deploy to Netlify through:
+1. Connecting your GitHub repository to Netlify.
+2. Setting the build command to `bun run build`.
+3. Setting the publish directory to `dist`.
+4. Ensuring the `_redirects` file is present in the public directory for proper SPA routing.
 
-This project is built with:
+The app will be automatically deployed on every push to the main branch.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Contact
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/f02dd803-832c-4682-ac78-829ff96e1716) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+For inquiries or collaboration opportunities, please email:
+[aljhoenilw@gmail.com](mailto:aljhoenilw@gmail.com)
