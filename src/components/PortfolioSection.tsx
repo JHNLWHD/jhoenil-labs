@@ -33,6 +33,12 @@ const PortfolioSection = () => {
   const portfolioItems = [
     {
       icon: Laptop,
+      title: 'Rotary Club of Zamboanga City Website',
+      description: 'Official website of the Rotary Club of Zamboanga City West, showcasing projects, events, and leadership committed to service above self.',
+      link: 'https://rotaryzcwest.org/'
+    },
+    {
+      icon: Laptop,
       title: 'Kodigo Eleksyon 2025',
       description: 'An intuitive tool designed to help Filipinos prepare for the national elections. Users can create personalized voting guides and share them with others. During the election period, the platform attracted over 3.57K unique visitors and generated 15.1K page views, showcasing its impact in empowering informed voting decisions.',
       link: 'https://kodigoeleksyon2025.netlify.app/'
@@ -47,7 +53,7 @@ const PortfolioSection = () => {
       icon: Laptop,
       title: 'Rotaract Club of Zamboanga City West Website',
       description: 'A dedicated platform for the Rotaract Club of Zamboanga City West to showcase their projects, events, and community impact.',
-      link: 'https://rotaract-zambo-city-west.netlify.app/'
+      link: 'https://rotaract.rotaryzcwest.org/'
     },
     {
       icon: Smartphone,
