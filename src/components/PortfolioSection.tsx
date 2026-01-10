@@ -33,6 +33,12 @@ const PortfolioSection = () => {
   const portfolioItems = [
     {
       icon: Laptop,
+      title: 'Ajinomoto Distributor Sales & Inventory System',
+      description: 'A customized spreadsheet-based sales and inventory system developed for an Ajinomoto distributor. This modernization solution moved them away from manual tracking, allowing them to ditch manual paperwork and monitor their entire operation in real-time.',
+      link: '#'
+    },
+    {
+      icon: Laptop,
       title: 'Rotary Club of Zamboanga City Website',
       description: 'Official website of the Rotary Club of Zamboanga City West, showcasing projects, events, and leadership committed to service above self.',
       link: 'https://rotaryzcwest.org/'
