@@ -49,7 +49,7 @@ export const currentWork: Engagement[] = [
   },
   {
     client: 'SolarTech PH',
-    role: 'Developer',
+    role: 'Sole developer',
     outcome:
       'Building an operations portal and a customer-facing mobile app to run their solar business and keep customers in the loop.',
     status: 'Upcoming',
