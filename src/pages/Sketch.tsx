@@ -68,8 +68,9 @@ const SketchHeader = () => {
   return (
     <header className="sticky top-0 z-50 border-b border-neutral-200 bg-[#fdfbf5]/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 md:px-8">
-        <a href="#top" className={cn(HAND, 'rounded-full border-2 border-neutral-700 px-3 py-1 text-xl sm:px-4 sm:text-2xl')} aria-label={`${siteConfig.name} — top`}>
-          {siteConfig.name}
+        <a href="#top" className="flex items-center gap-2" aria-label={`${siteConfig.brand} — home`}>
+          <img src="/jhoenil_labs.png" alt="" className="h-10 w-10 object-contain" />
+          <span className={cn(HAND, 'text-2xl text-neutral-800')}>{siteConfig.brand}</span>
         </a>
         <nav className="hidden items-center gap-7 md:flex">
           {navLinks.map((l) => (
