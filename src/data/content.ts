@@ -11,7 +11,7 @@
 export const siteConfig = {
   name: 'Jhoenil Wahid',
   brand: 'Jhoenil Labs',
-  url: 'https://jhoenil-labs.netlify.app',
+  url: 'https://jhoenil.com',
   email: 'aljhoenilw@gmail.com',
   location: 'Philippines — working with clients worldwide',
   linkedinUrl: 'https://www.linkedin.com/in/jhoenilwahid/',
@@ -23,7 +23,7 @@ export const siteConfig = {
 
 /** Headline metrics — every number here must be real and defensible. */
 export const metrics: { value: string; label: string }[] = [
-  { value: '5+ yrs', label: 'building production software' },
+  { value: '10+ yrs', label: 'building production software' },
   { value: '₱2M+', label: 'monthly sales tracked · FMCG distribution' },
   { value: '10+', label: 'products shipped across industries' },
   { value: 'Sole dev', label: 'trusted with full platforms' },
@@ -40,16 +40,16 @@ export type Engagement = {
 
 export const currentWork: Engagement[] = [
   {
-    client: 'i3pl Al Arabia',
+    client: 'A global logistics company · Jeddah, Saudi Arabia',
     role: 'Sole developer',
     outcome:
-      'Building their operations CRM from the ground up and led their server migration to Hetzner — one engineer trusted with the whole platform.',
+      'Brought in to stabilize and improve their operations CRM, then led the server migration to Hetzner — one engineer trusted with the whole platform.',
     status: 'Active',
     tags: ['CRM Platform', 'Server Migration', 'Operations'],
   },
   {
-    client: 'SolarTech PH',
-    role: 'Developer',
+    client: 'A solar energy business · Philippines',
+    role: 'Sole developer',
     outcome:
       'Building an operations portal and a customer-facing mobile app to run their solar business and keep customers in the loop.',
     status: 'Upcoming',

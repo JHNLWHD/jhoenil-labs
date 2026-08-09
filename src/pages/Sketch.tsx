@@ -27,10 +27,10 @@ const HAND = "font-['Caveat',cursive]";
 /** A hand-drawn "wobble" via irregular corner radii — no two elements match exactly. */
 const wobble = (seed: number): React.CSSProperties => {
   const variants = [
-    '255px 15px 225px 15px / 15px 225px 15px 255px',
-    '225px 15px 255px 20px / 20px 255px 15px 225px',
-    '20px 255px 15px 225px / 225px 15px 255px 20px',
-    '255px 20px 15px 225px / 15px 225px 20px 255px',
+    '24px 18px 28px 20px / 20px 26px 18px 24px',
+    '28px 20px 24px 18px / 18px 24px 20px 28px',
+    '20px 28px 18px 24px / 24px 18px 28px 20px',
+    '26px 18px 22px 28px / 18px 26px 28px 20px',
   ];
   return { borderRadius: variants[seed % variants.length] };
 };
@@ -348,7 +348,7 @@ const Sketch = () => {
                 Turning complex problems into simple, working systems.
               </h2>
               <p className="mt-3 max-w-lg text-sm leading-relaxed text-neutral-600">
-                5+ years in software engineering and technical consulting — often the sole developer
+                10+ years in software engineering and technical consulting — often the sole developer
                 trusted with the whole platform. I care about clean code, performance, and technology
                 that makes a measurable difference to the business.
               </p>
