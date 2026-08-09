@@ -48,6 +48,21 @@ const openCal = (calLink: string) => {
   }
 
   cal('init', 'jhoenil', { origin: 'https://cal.com' });
+  cal.ns.jhoenil?.('ui', {
+    theme: 'light',
+    cssVarsPerTheme: {
+      light: {
+        'cal-brand': '#2b7fdb',
+        'cal-brand-emphasis': '#1f65b1',
+        'cal-brand-text': '#ffffff',
+        'cal-bg': '#fdfbf5',
+        'cal-bg-subtle': '#ffffff',
+        'cal-bg-emphasis': '#eef6ff',
+        'cal-border': '#d4d4d4',
+        radius: '0.25rem',
+      },
+    },
+  });
   cal.ns.jhoenil?.('modal', { calLink });
 };
 
