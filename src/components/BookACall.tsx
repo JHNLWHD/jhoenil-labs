@@ -63,7 +63,7 @@ const openCal = (calLink: string) => {
       },
     },
   });
-  cal.ns.jhoenil?.('modal', { calLink });
+  cal.ns.jhoenil?.('modal', { calLink, config: { theme: 'light' } });
 };
 
 /**
