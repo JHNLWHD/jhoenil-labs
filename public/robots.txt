@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://jhoenil-labs.netlify.app/sitemap.xml
+Sitemap: https://jhoenil.com/sitemap.xml
 
 # Specific bot rules
 User-agent: Googlebot

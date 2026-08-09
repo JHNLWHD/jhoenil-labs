@@ -11,7 +11,7 @@
 export const siteConfig = {
   name: 'Jhoenil Wahid',
   brand: 'Jhoenil Labs',
-  url: 'https://jhoenil-labs.netlify.app',
+  url: 'https://jhoenil.com',
   email: 'aljhoenilw@gmail.com',
   location: 'Philippines — working with clients worldwide',
   linkedinUrl: 'https://www.linkedin.com/in/jhoenilwahid/',
