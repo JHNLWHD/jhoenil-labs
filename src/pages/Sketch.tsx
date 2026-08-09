@@ -74,7 +74,7 @@ const SketchHeader = () => {
         </a>
         <nav className="hidden items-center gap-7 md:flex">
           {navLinks.map((l) => (
-            <a key={l.href} href={l.href} className={cn(HAND, 'text-xl text-neutral-700 transition-colors hover:text-rose-400')}>
+            <a key={l.href} href={l.href} className={cn(HAND, 'text-xl text-neutral-700 transition-colors hover:text-[hsl(var(--brand))]')}>
               {l.label}
             </a>
           ))}
@@ -142,7 +142,7 @@ const SketchContactForm = () => {
     }
   };
 
-  const fieldCls = 'w-full border-2 border-neutral-700 bg-white px-4 py-3 text-sm placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-rose-200';
+  const fieldCls = 'w-full border-2 border-neutral-700 bg-white px-4 py-3 text-sm placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--brand))]';
 
   return (
     <form
@@ -200,7 +200,7 @@ const Sketch = () => {
               ✓ available for new projects
             </span>
           <h1 className={cn(HAND, 'max-w-2xl text-5xl leading-[1.05] text-neutral-800 sm:text-6xl md:text-7xl')}>
-              Software that replaces <span className="text-rose-400">manual work.</span>
+              Software that replaces <span className="text-[hsl(var(--brand))]">manual work.</span>
           </h1>
           <p className="mt-5 max-w-md text-base leading-relaxed text-neutral-600">
               I&apos;m {siteConfig.name} — I build web apps, mobile apps, and operational systems that
@@ -234,7 +234,7 @@ const Sketch = () => {
               {currentWork.map((item, i) => (
                 <div key={item.client} className={cn('border-2 border-neutral-700 bg-[#fdfbf5] p-5', tiltCycle[i % tiltCycle.length])} style={wobble(i)}>
                   <div className="flex items-center justify-between">
-                    <span className={cn(HAND, 'text-lg text-rose-400')}>{item.role}</span>
+                    <span className={cn(HAND, 'text-lg text-[hsl(var(--brand))]')}>{item.role}</span>
                     <span className={cn('rounded-full border px-2 py-0.5 text-[10px] uppercase tracking-wide', statusStyles[item.status] ?? statusStyles.Delivered)}>{item.status}</span>
                   </div>
                   <h3 className="mt-2 text-base font-semibold text-neutral-800">{item.client}</h3>
@@ -263,7 +263,7 @@ const Sketch = () => {
                 <div key={s.title} className={cn('flex flex-col border-2 border-neutral-700 bg-white p-5', tiltCycle[(i + 1) % tiltCycle.length])} style={wobble(i + 2)}>
                   <span className={cn(HAND, 'text-3xl text-neutral-300')}>0{i + 1}</span>
                   <h3 className="mt-1 text-base font-semibold text-neutral-800">{s.title}</h3>
-                  <p className={cn(HAND, 'mt-1 text-xl text-rose-400')}>{s.outcome}</p>
+                  <p className={cn(HAND, 'mt-1 text-xl text-[hsl(var(--brand))]')}>{s.outcome}</p>
                   <p className="mt-3 flex-grow text-sm leading-relaxed text-neutral-600">{s.description}</p>
                   <div className="mt-4 flex flex-wrap gap-1.5 border-t border-dashed border-neutral-300 pt-3">
                     {s.capabilities.map((cap) => (
@@ -311,14 +311,14 @@ const Sketch = () => {
                   <div className="relative aspect-[16/10] overflow-hidden border border-neutral-300 bg-neutral-100">
                     <img src={project.image} alt={`${project.title} preview`} loading="lazy" className="h-full w-full object-cover object-top" />
                   </div>
-                  <div className="absolute -right-3 -top-3 h-7 w-7 rotate-12 rounded-full bg-rose-200" aria-hidden="true" />
+                  <div className="absolute -right-3 -top-3 h-7 w-7 rotate-12 rounded-full bg-[hsl(var(--brand)/0.18)]" aria-hidden="true" />
                   <div className="p-3">
                     <h3 className={cn(HAND, 'flex items-center justify-between gap-2 break-words text-xl text-neutral-800')}>
                       {project.title}
                       <ArrowUpRight className="h-4 w-4 flex-shrink-0 text-neutral-400" aria-hidden="true" />
                     </h3>
                     <span className={cn('mt-2 inline-block rounded-full border px-2 py-0.5 text-[10px] uppercase tracking-wide', projectStatusStyles[project.status])}>{project.status}</span>
-                    <p className="mt-1 text-xs text-rose-400">{project.outcome}</p>
+                    <p className="mt-1 text-xs text-[hsl(var(--brand))]">{project.outcome}</p>
                   </div>
                 </Link>
               ))}
@@ -328,7 +328,7 @@ const Sketch = () => {
                     <div>
                       <h3 className={cn(HAND, 'text-xl text-neutral-800')}>{project.title}</h3>
                       <span className={cn('mt-2 inline-block rounded-full border px-2 py-0.5 text-[10px] uppercase tracking-wide', projectStatusStyles[project.status])}>{project.status}</span>
-                      <p className="mt-1 text-xs text-rose-400">{project.outcome}</p>
+                      <p className="mt-1 text-xs text-[hsl(var(--brand))]">{project.outcome}</p>
                     </div>
                     <span className="mt-4 flex items-center gap-1.5 text-[10px] uppercase tracking-wide text-neutral-400">
                       {project.url ? <>view project →</> : <><Lock className="h-3 w-3" /> private</>}
@@ -344,7 +344,7 @@ const Sketch = () => {
         <section className="border-t border-neutral-200 bg-white">
           <div className="mx-auto max-w-5xl px-5 py-14 md:px-8 md:py-20">
             <div className="border-2 border-neutral-700 p-7" style={wobble(3)}>
-              <span className={cn(HAND, 'text-2xl text-rose-400')}>about me</span>
+              <span className={cn(HAND, 'text-2xl text-[hsl(var(--brand))]')}>about me</span>
               <h2 className="mt-2 max-w-lg text-2xl font-semibold leading-tight text-neutral-800">
                 Turning complex problems into simple, working systems.
               </h2>
@@ -365,7 +365,7 @@ const Sketch = () => {
           <div className="mx-auto max-w-5xl px-5 py-14 md:px-8 md:py-20">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
               <div>
-                <span className={cn(HAND, 'text-2xl text-rose-400')}>let&apos;s talk</span>
+                <span className={cn(HAND, 'text-2xl text-[hsl(var(--brand))]')}>let&apos;s talk</span>
                 <h2 className={cn(HAND, 'mt-2 text-4xl text-neutral-800')}>
                   got a project to modernize?
                 </h2>
@@ -376,8 +376,8 @@ const Sketch = () => {
                   <BookACall className={cn(btnSolid, HAND, 'text-xl')} label="Start a conversation" withIcon={false} />
                 </div>
                 <div className={cn(HAND, 'mt-8 space-y-1.5 text-xl text-neutral-600')}>
-                  <p><a href={`mailto:${siteConfig.email}`} className="hover:text-rose-400">{siteConfig.email}</a></p>
-                  <p><a href={siteConfig.linkedinUrl} target="_blank" rel="noopener noreferrer" className="hover:text-rose-400">LinkedIn</a></p>
+                  <p><a href={`mailto:${siteConfig.email}`} className="hover:text-[hsl(var(--brand))]">{siteConfig.email}</a></p>
+                  <p><a href={siteConfig.linkedinUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[hsl(var(--brand))]">LinkedIn</a></p>
                 </div>
               </div>
               <SketchContactForm />
@@ -390,9 +390,9 @@ const Sketch = () => {
         <div className={cn(HAND, 'mx-auto flex max-w-5xl flex-col gap-2 px-5 py-8 text-lg text-neutral-500 md:flex-row md:items-center md:justify-between md:px-8')}>
           <span>© {new Date().getFullYear()} {siteConfig.name}</span>
           <span className="flex flex-wrap gap-4">
-            <Link to="/" className="hover:text-rose-400">main</Link>
-            <a href={`mailto:${siteConfig.email}`} className="hover:text-rose-400">email</a>
-            <a href={siteConfig.linkedinUrl} target="_blank" rel="noopener noreferrer" className="hover:text-rose-400">LinkedIn</a>
+            <Link to="/" className="hover:text-[hsl(var(--brand))]">main</Link>
+            <a href={`mailto:${siteConfig.email}`} className="hover:text-[hsl(var(--brand))]">email</a>
+            <a href={siteConfig.linkedinUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[hsl(var(--brand))]">LinkedIn</a>
           </span>
         </div>
       </footer>
