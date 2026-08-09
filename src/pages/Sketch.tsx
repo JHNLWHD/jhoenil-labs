@@ -79,8 +79,8 @@ const SketchHeader = () => {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <BookACall className={cn('hidden min-h-11 rotate-1 items-center border-2 border-neutral-700 px-4 py-1.5 md:inline-flex', HAND, 'text-lg')} withIcon={false} label="Get started!" />
-          <BookACall className={cn('inline-flex min-h-11 items-center border-2 border-neutral-700 px-3 py-2 text-base md:hidden', HAND)} withIcon={false} label="Book a call" />
+          <BookACall className={cn('hidden min-h-11 rotate-1 items-center border-2 border-neutral-700 px-4 py-1.5 md:inline-flex', HAND, 'text-lg')} withIcon={false} label="Book a 30-minute call" />
+          <BookACall className={cn('inline-flex min-h-11 items-center border-2 border-neutral-700 px-3 py-2 text-base md:hidden', HAND)} withIcon={false} label="Book a 30-minute call" />
           <button className="inline-flex min-h-11 min-w-11 items-center justify-center text-neutral-800 md:hidden" onClick={() => setOpen((v) => !v)} aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open}>
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
@@ -206,7 +206,7 @@ const Sketch = () => {
               give growing businesses real-time visibility.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-5">
-              <BookACall className={cn(btnSolid, HAND, 'min-h-11 text-xl')} label="Start a conversation" withIcon={false} />
+              <BookACall className={cn(btnSolid, HAND, 'min-h-11 text-xl')} label="Book a 30-minute call" withIcon={false} />
               <a href="#portfolio" className={cn(btnGhost, HAND, 'min-h-11 text-lg')}>see the work →</a>
             </div>
 
@@ -247,7 +247,7 @@ const Sketch = () => {
               ))}
             </div>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <BookACall className={cn(btnSolid, HAND, 'min-h-11 text-xl')} label="work on something similar" withIcon={false} />
+              <BookACall className={cn(btnSolid, HAND, 'min-h-11 text-xl')} label="Book a 30-minute call" withIcon={false} />
               <a href="#portfolio" className={cn(btnGhost, HAND, 'min-h-11 text-lg')}>see delivered work →</a>
             </div>
           </div>
@@ -372,7 +372,7 @@ const Sketch = () => {
                   The fastest way to start is a quick call — 30 minutes, no pitch deck.
                 </p>
                 <div className="mt-6">
-                  <BookACall className={cn(btnSolid, HAND, 'text-xl')} label="Start a conversation" withIcon={false} />
+                  <BookACall className={cn(btnSolid, HAND, 'text-xl')} label="Book a 30-minute call" withIcon={false} />
                 </div>
                 <div className={cn(HAND, 'mt-8 space-y-1.5 text-xl text-neutral-600')}>
                   <p><a href={`mailto:${siteConfig.email}`} className="hover:text-[hsl(var(--brand))]">{siteConfig.email}</a></p>

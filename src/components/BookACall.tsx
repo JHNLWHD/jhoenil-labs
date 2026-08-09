@@ -72,7 +72,7 @@ const openCal = (calLink: string) => {
  */
 const BookACall = ({
   className = 'btn-primary',
-  label = 'Start a conversation',
+  label = 'Book a 30-minute call',
   withIcon = true,
 }: {
   className?: string;
