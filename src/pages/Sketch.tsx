@@ -348,7 +348,7 @@ const Sketch = () => {
                 Turning complex problems into simple, working systems.
               </h2>
               <p className="mt-3 max-w-lg text-sm leading-relaxed text-neutral-600">
-                5+ years in software engineering and technical consulting — often the sole developer
+                10+ years in software engineering and technical consulting — often the sole developer
                 trusted with the whole platform. I care about clean code, performance, and technology
                 that makes a measurable difference to the business.
               </p>

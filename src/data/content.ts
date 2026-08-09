@@ -23,7 +23,7 @@ export const siteConfig = {
 
 /** Headline metrics — every number here must be real and defensible. */
 export const metrics: { value: string; label: string }[] = [
-  { value: '5+ yrs', label: 'building production software' },
+  { value: '10+ yrs', label: 'building production software' },
   { value: '₱2M+', label: 'monthly sales tracked · FMCG distribution' },
   { value: '10+', label: 'products shipped across industries' },
   { value: 'Sole dev', label: 'trusted with full platforms' },
