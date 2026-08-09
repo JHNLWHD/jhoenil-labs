@@ -369,7 +369,7 @@ const Sketch = () => {
                   got a project to modernize?
                 </h2>
                 <p className="mt-3 max-w-sm text-sm leading-relaxed text-neutral-600">
-                  The fastest way to start is a quick call — 20 minutes, no pitch deck.
+                  The fastest way to start is a quick call — 30 minutes, no pitch deck.
                 </p>
                 <div className="mt-6">
                   <BookACall className={cn(btnSolid, HAND, 'text-xl')} label="Start a conversation" withIcon={false} />

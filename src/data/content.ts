@@ -5,8 +5,7 @@
  * public deploy, edit its `name` (e.g. "i3pl Al Arabia" -> "a logistics company").
  * Nothing here is cleared for public exposure until Jhoenil signs off per name.
  *
- * PLACEHOLDERS: `siteConfig.calendlyUrl` and `siteConfig.githubUrl` are empty until
- * supplied. Empty calendlyUrl makes the "Book a call" CTA fall back to the contact form.
+ * `siteConfig.calLink` is the Cal.com profile or event link used by the CTA embed.
  */
 
 export const siteConfig = {
@@ -17,7 +16,7 @@ export const siteConfig = {
   location: 'Philippines — working with clients worldwide',
   linkedinUrl: 'https://www.linkedin.com/in/jhoenilwahid/',
   githubUrl: '', // TODO: add GitHub profile URL
-  calendlyUrl: '', // TODO: add Calendly/Cal.com link; empty => CTA scrolls to contact form
+  calLink: 'jhoenil-wahid',
   resumeUrl:
     'https://drive.google.com/file/d/1UKdYPjR84LZW-1tvbTX0H8r_r3ZlMmCU/view?usp=sharing',
 } as const;
@@ -256,7 +255,7 @@ export const process: ProcessStep[] = [
     n: '01',
     title: 'Discovery call',
     description:
-      '20 minutes, no pitch deck. We talk through what you need and whether I\'m the right fit — free, no obligation.',
+      '30 minutes, no pitch deck. We talk through what you need and whether I\'m the right fit — free, no obligation.',
   },
   {
     n: '02',
