@@ -40,7 +40,7 @@ export type Engagement = {
 
 export const currentWork: Engagement[] = [
   {
-    client: 'i3pl Al Arabia',
+    client: 'An FMCG distributor',
     role: 'Sole developer',
     outcome:
       'Building their operations CRM from the ground up and led their server migration to Hetzner — one engineer trusted with the whole platform.',
@@ -48,7 +48,7 @@ export const currentWork: Engagement[] = [
     tags: ['CRM Platform', 'Server Migration', 'Operations'],
   },
   {
-    client: 'SolarTech PH',
+    client: 'A solar energy business',
     role: 'Sole developer',
     outcome:
       'Building an operations portal and a customer-facing mobile app to run their solar business and keep customers in the loop.',
