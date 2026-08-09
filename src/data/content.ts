@@ -16,7 +16,7 @@ export const siteConfig = {
   location: 'Philippines — working with clients worldwide',
   linkedinUrl: 'https://www.linkedin.com/in/jhoenilwahid/',
   githubUrl: '', // TODO: add GitHub profile URL
-  calLink: 'jhoenil-wahid',
+  calLink: 'jhoenil-wahid/30-minute-discovery-call-with-jhoenil',
   resumeUrl:
     'https://drive.google.com/file/d/1UKdYPjR84LZW-1tvbTX0H8r_r3ZlMmCU/view?usp=sharing',
 } as const;
