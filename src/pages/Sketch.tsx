@@ -80,7 +80,7 @@ const SketchHeader = () => {
         </nav>
         <div className="flex items-center gap-2">
           <BookACall className={cn('hidden min-h-11 rotate-1 items-center border-2 border-neutral-700 px-4 py-1.5 md:inline-flex', HAND, 'text-lg')} withIcon={false} label="Get started!" />
-          <BookACall className={cn('inline-flex min-h-11 items-center border-2 border-neutral-700 px-3 py-2 text-base md:hidden', HAND)} withIcon={false} label="Contact" />
+          <BookACall className={cn('inline-flex min-h-11 items-center border-2 border-neutral-700 px-3 py-2 text-base md:hidden', HAND)} withIcon={false} label="Book a call" />
           <button className="inline-flex min-h-11 min-w-11 items-center justify-center text-neutral-800 md:hidden" onClick={() => setOpen((v) => !v)} aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open}>
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
@@ -379,7 +379,13 @@ const Sketch = () => {
                   <p><a href={siteConfig.linkedinUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[hsl(var(--brand))]">LinkedIn</a></p>
                 </div>
               </div>
-              <SketchContactForm />
+              <div>
+                <h3 className={cn(HAND, 'text-2xl text-neutral-800')}>Prefer to send the details?</h3>
+                <p className="mt-2 mb-4 text-sm leading-relaxed text-neutral-600">
+                  Send a few notes instead and I&apos;ll reply within two business days.
+                </p>
+                <SketchContactForm />
+              </div>
             </div>
           </div>
         </section>

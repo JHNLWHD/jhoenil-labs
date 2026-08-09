@@ -1,6 +1,7 @@
 import { ArrowLeft, ArrowUpRight, Lock } from 'lucide-react';
 import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import BookACall from '@/components/BookACall';
 import { projects, siteConfig } from '@/data/content';
 import { projectSlug } from '@/lib/projectSlug';
 
@@ -76,15 +77,22 @@ const ProjectDetail = () => {
               ))}
             </div>
 
-            {project.url ? (
-              <a href={project.url} target="_blank" rel="noopener noreferrer" className="mt-9 inline-flex items-center gap-2 border-2 border-neutral-800 bg-white px-5 py-3 font-['Caveat',cursive] text-xl hover:-rotate-1">
-                visit project <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-              </a>
-            ) : (
-              <p className="mt-9 inline-flex items-center gap-2 border-2 border-dashed border-neutral-400 px-5 py-3 text-sm text-neutral-500">
-                <Lock className="h-4 w-4" aria-hidden="true" /> private or offline system
-              </p>
-            )}
+            <div className="mt-9 flex flex-wrap items-center gap-3">
+              {project.url ? (
+                <a href={project.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border-2 border-neutral-800 bg-white px-5 py-3 font-['Caveat',cursive] text-xl hover:-rotate-1">
+                  visit project <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+              ) : (
+                <p className="inline-flex items-center gap-2 border-2 border-dashed border-neutral-400 px-5 py-3 text-sm text-neutral-500">
+                  <Lock className="h-4 w-4" aria-hidden="true" /> private or offline system
+                </p>
+              )}
+              <BookACall
+                className="inline-flex items-center justify-center border-2 border-neutral-800 bg-white px-5 py-3 font-['Caveat',cursive] text-xl text-neutral-800 hover:-rotate-1"
+                label="Talk about a similar project"
+                withIcon={false}
+              />
+            </div>
           </div>
 
           <div className="rotate-1 border-2 border-neutral-700 bg-white p-2 shadow-[5px_5px_0_#d4d4d4]">
