@@ -40,7 +40,7 @@ export type Engagement = {
 
 export const currentWork: Engagement[] = [
   {
-    client: 'An FMCG distributor',
+    client: 'A global logistics company',
     role: 'Sole developer',
     outcome:
       'Building their operations CRM from the ground up and led their server migration to Hetzner — one engineer trusted with the whole platform.',
