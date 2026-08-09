@@ -1,60 +1,52 @@
 import React from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Smartphone, Cloud, Briefcase, Brain } from 'lucide-react';
+import { Smartphone, Workflow, Cloud } from 'lucide-react';
+import { services } from '@/data/content';
 
-const services = [
-  {
-    icon: Smartphone,
-    title: "Web & Mobile Development",
-    description: "I create custom web applications, responsive websites, and cross-platform mobile apps using modern frameworks and best practices."
-  },
-  {
-    icon: Cloud,
-    title: "DevOps & Cloud Solutions",
-    description: "I specialize in cloud infrastructure setup, CI/CD pipelines, containerization, and deployment automation for seamless operations."
-  },
-  {
-    icon: Briefcase,
-    title: "Technical Leadership",
-    description: "I provide team leadership, technical strategy, architecture design, and mentoring to ensure successful project delivery and team growth."
-  },
-  {
-    icon: Brain,
-    title: "Artificial Intelligence",
-    description: "I integrate AI technologies to develop intelligent applications and automate complex processes."
-  },
-  {
-    icon: Cloud,
-    title: "Data Engineering",
-    description: "I build dashboards, systems, and automations in Google Sheets to streamline workflows and enable data-driven decision-making."
-  }
-];
+const icons = [Smartphone, Workflow, Cloud];
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-16 md:py-20 px-4 md:px-12 bg-gray-50" aria-labelledby="services-heading">
-      <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-12">
-          <h2 id="services-heading" className="text-3xl font-bold mb-4">My Services</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            I offer comprehensive solutions tailored to meet your specific technology needs and business goals.
+    <section id="services" className="py-16 md:py-24" aria-labelledby="services-heading">
+      <div className="section-shell">
+        <div className="mb-12 max-w-2xl">
+          <span className="eyebrow">What I do</span>
+          <h2 id="services-heading" className="mt-4 text-3xl font-medium md:text-4xl">
+            Three ways I help businesses move faster.
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            Whether you need something built, a manual process replaced, or a senior hand to steer
+            the technology — I cover the whole range.
           </p>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-          {services.map((service, index) => (
-            <Card key={index} className="border-0 shadow-md hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <div className="bg-blue-100 rounded-xl p-3 inline-flex items-center justify-center mb-4" aria-hidden="true">
-                  <service.icon className="w-6 h-6 text-blue-600" />
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {services.map((service, i) => {
+            const Icon = icons[i] ?? Smartphone;
+            return (
+              <article key={service.title} className="edge-card flex flex-col p-7">
+                <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-foreground text-background">
+                  <Icon className="h-6 w-6" aria-hidden="true" />
                 </div>
-                <CardTitle className="min-h-12 flex items-center justify-center">{service.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-gray-600">{service.description}</CardDescription>
-              </CardContent>
-            </Card>
-          ))}
+                <h3 className="text-xl font-medium">{service.title}</h3>
+                <p className="mt-1 font-display text-lg text-[hsl(var(--brand))]">
+                  {service.outcome}
+                </p>
+                <p className="mt-4 flex-grow text-sm leading-relaxed text-muted-foreground">
+                  {service.description}
+                </p>
+                <ul className="mt-6 flex flex-wrap gap-2 border-t border-border pt-5">
+                  {service.capabilities.map((cap) => (
+                    <li
+                      key={cap}
+                      className="rounded-full bg-secondary px-2.5 py-1 text-xs text-foreground/70"
+                    >
+                      {cap}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

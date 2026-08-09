@@ -1,100 +1,81 @@
 import React from 'react';
-import { ArrowRight, Laptop, Smartphone } from 'lucide-react';
-import { Link } from 'react-router-dom';
-
-const PortfolioItem = ({ icon: Icon, title, description, link }: { 
-  icon: React.ElementType, 
-  title: string, 
-  description: string, 
-  link: string 
-}) => {
-  return (
-    <div className="portfolio-card flex flex-col justify-between h-full">
-      <div className="flex-grow">
-        <div className="portfolio-icon text-blue-600 mb-6" aria-hidden="true">
-          <Icon className="w-6 h-6" />
-        </div>
-        <h3 className="font-bold text-lg mb-2">{title}</h3>
-        <p className="text-gray-600 text-sm mb-6">{description}</p>
-      </div>
-      <Link
-        to={link}
-        target="_blank"
-        className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800 mt-auto"
-        aria-label={`View ${title} project`}
-      >
-        View Project <ArrowRight className="ml-2 w-4 h-4" aria-hidden="true" />
-      </Link>
-    </div>
-  );
-};
+import { ArrowUpRight, Lock } from 'lucide-react';
+import { projects } from '@/data/content';
+import BookACall from '@/components/BookACall';
 
 const PortfolioSection = () => {
-  const portfolioItems = [
-    {
-      icon: Laptop,
-      title: 'Ajinomoto Distributor Sales & Inventory System',
-      description: 'A customized spreadsheet-based sales and inventory system developed for an Ajinomoto distributor. This modernization solution moved them away from manual tracking, allowing them to ditch manual paperwork and monitor their entire operation in real-time.',
-      link: '#'
-    },
-    {
-      icon: Laptop,
-      title: 'Rotary Club of Zamboanga City Website',
-      description: 'Official website of the Rotary Club of Zamboanga City West, showcasing projects, events, and leadership committed to service above self.',
-      link: 'https://rotaryzcwest.org/'
-    },
-    {
-      icon: Laptop,
-      title: 'Kodigo Eleksyon 2025',
-      description: 'An intuitive tool designed to help Filipinos prepare for the national elections. Users can create personalized voting guides and share them with others. During the election period, the platform attracted over 3.57K unique visitors and generated 15.1K page views, showcasing its impact in empowering informed voting decisions.',
-      link: 'https://kodigoeleksyon2025.netlify.app/'
-    },
-    {
-      icon: Laptop,
-      title: 'Pilipinas Rotaract MDIO Website',
-      description: 'The official website for Pilipinas Rotaract MDIO, highlighting their mission, initiatives, and organizational achievements.',
-      link: 'https://mdio-pilipinas.netlify.app/'
-    },
-    {
-      icon: Laptop,
-      title: 'Rotaract Club of Zamboanga City West Website',
-      description: 'A dedicated platform for the Rotaract Club of Zamboanga City West to showcase their projects, events, and community impact.',
-      link: 'https://rotaract.rotaryzcwest.org/'
-    },
-    {
-      icon: Smartphone,
-      title: 'Spayce',
-      description: 'A feature-rich rent collection app offering reminders, bookkeeping, and tracking. Key features include automated notifications for tenants and landlords, ensuring seamless rental management.',
-      link: 'https://play.google.com/store/apps/details?id=ph.spayce.owner&hl=fil'
-    },
-    {
-      icon: Laptop,
-      title: 'COVID19 ZC Website',
-      description: 'A comprehensive tracker for COVID-19 statistics in Zamboanga City, providing real-time updates and historical data.',
-      link: 'https://covid19-zc.netlify.app/'
-    }
-  ];
-
   return (
-    <section id="portfolio" className="py-16 md:py-20 px-4 md:px-12" aria-labelledby="portfolio-heading">
-      <div className="container mx-auto max-w-7xl">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
-          <div>
-            <h2 id="portfolio-heading" className="text-2xl md:text-3xl font-bold mb-3">Portfolio Highlights</h2>
-            <p className="text-gray-600">Selected projects showcasing my expertise and problem-solving approach.</p>
-          </div>
+    <section id="portfolio" className="py-16 md:py-24 bg-secondary/40" aria-labelledby="portfolio-heading">
+      <div className="section-shell">
+        <div className="mb-12 max-w-2xl">
+          <span className="eyebrow">Selected work</span>
+          <h2 id="portfolio-heading" className="mt-4 text-3xl font-medium md:text-4xl">
+            Shipped projects, real results.
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            A selection of products and systems I&apos;ve delivered — each solving a concrete problem.
+          </p>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {portfolioItems.map((item, index) => (
-            <PortfolioItem
-              key={index}
-              icon={item.icon}
-              title={item.title}
-              description={item.description}
-              link={item.link}
-            />
-          ))}
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project) => {
+            const isPrivate = !project.url;
+            const CardTag: React.ElementType = isPrivate ? 'div' : 'a';
+            const linkProps = isPrivate
+              ? {}
+              : { href: project.url as string, target: '_blank', rel: 'noopener noreferrer' };
+
+            return (
+              <CardTag
+                key={project.title}
+                {...linkProps}
+                className="edge-card group flex flex-col overflow-hidden"
+                aria-label={isPrivate ? undefined : `View ${project.title}`}
+              >
+                {/* screenshot / preview */}
+                <div className="relative aspect-[16/10] overflow-hidden border-b border-border bg-secondary">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} preview`}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                  <span className="absolute left-3 top-3 rounded-full bg-background/90 px-2.5 py-1 text-xs font-medium text-foreground backdrop-blur">
+                    {project.category}
+                  </span>
+                </div>
+
+                <div className="flex flex-grow flex-col p-6">
+                  <h3 className="flex items-start justify-between gap-2 text-lg font-medium">
+                    {project.title}
+                    {isPrivate ? (
+                      <Lock className="mt-1 h-4 w-4 flex-shrink-0 text-muted-foreground" aria-hidden="true" />
+                    ) : (
+                      <ArrowUpRight className="mt-1 h-4 w-4 flex-shrink-0 text-muted-foreground transition-all group-hover:text-[hsl(var(--brand))]" aria-hidden="true" />
+                    )}
+                  </h3>
+
+                  <p className="mt-2 text-sm font-medium text-[hsl(var(--brand))]">
+                    {project.outcome}
+                  </p>
+                  <p className="mt-3 flex-grow text-sm leading-relaxed text-muted-foreground">
+                    {project.description}
+                  </p>
+
+                  <div className="mt-5 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                    {isPrivate ? 'Private system' : 'View project →'}
+                  </div>
+                </div>
+              </CardTag>
+            );
+          })}
+        </div>
+
+        <div className="mt-12 flex flex-col items-center gap-3 rounded-2xl border border-dashed border-border p-8 text-center">
+          <p className="text-muted-foreground">
+            Want something like this built for your business?
+          </p>
+          <BookACall className="btn-primary" />
         </div>
       </div>
     </section>

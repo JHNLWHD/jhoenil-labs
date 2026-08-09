@@ -1,47 +1,80 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import BookACall from '@/components/BookACall';
+
+const navLinks = [
+  { href: '#work', label: 'Work' },
+  { href: '#services', label: 'Services' },
+  { href: '#portfolio', label: 'Portfolio' },
+  { href: '#about', label: 'About' },
+];
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <header className="py-4 px-4 md:px-8 flex justify-between items-center sticky top-0 bg-white/90 backdrop-blur-sm z-50 shadow-sm">
-      <div className="font-bold text-xl">
-        <a href="/" className="flex items-center gap-2" aria-label="Jhoenil Wahid Home">
-          <img src="jhoenil_labs.png" alt="Jhoenil Labs Logo" className="h-12 w-auto" />
+    <header
+      className={`sticky top-0 z-50 transition-colors ${
+        scrolled ? 'bg-background/85 backdrop-blur-md border-b border-border' : 'bg-transparent'
+      }`}
+    >
+      <div className="section-shell flex items-center justify-between py-4">
+        <a href="/" className="flex items-center gap-2" aria-label="Jhoenil Wahid — home">
+          <img src="/jhoenil_labs.png" alt="Jhoenil Labs" className="h-9 w-auto md:h-10" />
         </a>
+
+        <nav className="hidden items-center gap-8 md:flex">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="link-underline text-sm font-medium text-foreground/70 transition-colors hover:text-foreground"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-2">
+          <BookACall className="btn-primary hidden md:inline-flex" />
+          {/* Compact, always-visible CTA on mobile */}
+          <BookACall className="btn-primary px-4 py-2 text-xs md:hidden" />
+
+          <button
+            className="p-1 text-foreground md:hidden"
+            onClick={() => setMobileMenuOpen((v) => !v)}
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
-      
-      {/* Desktop Navigation */}
-      <nav className="hidden md:flex gap-8">
-        <a href="#about" className="text-sm font-medium hover:text-gray-600 transition-colors">About</a>
-        <a href="#services" className="text-sm font-medium hover:text-gray-600 transition-colors">Services</a>
-        <a href="#portfolio" className="text-sm font-medium hover:text-gray-600 transition-colors">Portfolio</a>
-        <a href="#contact" className="text-sm font-medium hover:text-gray-600 transition-colors">Contact</a>
-      </nav>
 
-      {/* Mobile Menu Button */}
-      <button 
-        className="md:hidden text-gray-700 focus:outline-none"
-        onClick={toggleMobileMenu}
-        aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-        aria-expanded={mobileMenuOpen}
-      >
-        {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-      </button>
-
-      {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-16 inset-x-0 bg-white shadow-lg p-4 z-50">
-          <nav className="flex flex-col gap-4">
-            <a href="#about" className="text-sm font-medium py-2 hover:text-gray-600 transition-colors" onClick={() => setMobileMenuOpen(false)}>About</a>
-            <a href="#services" className="text-sm font-medium py-2 hover:text-gray-600 transition-colors" onClick={() => setMobileMenuOpen(false)}>Services</a>
-            <a href="#portfolio" className="text-sm font-medium py-2 hover:text-gray-600 transition-colors" onClick={() => setMobileMenuOpen(false)}>Portfolio</a>
-            <a href="#contact" className="text-sm font-medium py-2 hover:text-gray-600 transition-colors" onClick={() => setMobileMenuOpen(false)}>Contact</a>
+        <div className="border-t border-border bg-background md:hidden">
+          <nav className="section-shell flex flex-col gap-1 py-4">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="py-2 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
+            <div className="pt-3">
+              <BookACall className="btn-primary w-full" />
+            </div>
           </nav>
         </div>
       )}

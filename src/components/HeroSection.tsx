@@ -1,38 +1,46 @@
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import { ArrowDown } from 'lucide-react';
+import BookACall from '@/components/BookACall';
 
 const HeroSection = () => {
   return (
-    <section className="hero-gradient py-16 md:py-20 px-4 md:px-12" aria-labelledby="hero-heading">
-      <div className="container mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="mb-4 text-sm uppercase font-medium text-gray-600">Welcome</div>
-            <h1 id="hero-heading" className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              Senior Software Engineer<br />&amp; Tech Consultant
-            </h1>
-            <p className="text-gray-700 mb-8 max-w-lg">
-              I'm <strong>Jhoenil Wahid</strong> - a seasoned senior software engineer and consultant with expertise in modern web and mobile technologies, DevOps, technical leadership, AI solutions, and data engineering. I specialize in building scalable systems, automations, and impactful systems to help businesses thrive.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button className="bg-gray-900 hover:bg-gray-800" onClick={() => document.getElementById('portfolio')?.scrollIntoView({behavior: 'smooth'})}>
-                View Portfolio
-              </Button>
-              <Button variant="outline" onClick={() => document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'})}>
-                Contact Me
-              </Button>
-            </div>
+    <section className="relative overflow-hidden" aria-labelledby="hero-heading">
+      {/* soft accent glow */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-40 -top-40 h-[32rem] w-[32rem] rounded-full opacity-[0.07] blur-3xl"
+        style={{ background: 'hsl(var(--brand))' }}
+      />
+
+      <div className="section-shell relative pt-16 pb-20 md:pt-24 md:pb-28">
+        <div className="max-w-3xl animate-rise">
+          <div className="mb-6 flex flex-wrap items-center gap-x-3 gap-y-2">
+            <span className="eyebrow">Senior software engineer &amp; consultant</span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">
+              <span className="h-2 w-2 rounded-full bg-emerald-500" />
+              Available for new projects
+            </span>
           </div>
-          <div className="hidden md:flex justify-end">
-            <div className="relative">
-              <div className="bg-white p-1 rounded-xl shadow-lg">
-                <img 
-                  src="/jhoenil_labs.png"
-                  alt="Jhoenil Labs Logo"
-                  className="w-full max-w-sm h-auto rounded-lg"
-                />
-              </div>
-            </div>
+
+          <h1
+            id="hero-heading"
+            className="text-balance text-4xl font-medium leading-[1.05] text-foreground sm:text-5xl md:text-6xl"
+          >
+            I build the software your business{' '}
+            <span className="text-[hsl(var(--brand))]">runs on.</span>
+          </h1>
+
+          <p className="text-pretty mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+            I&apos;m <strong className="font-medium text-foreground">Jhoenil Wahid</strong> — I design and
+            build web apps, mobile apps, and systems that replace manual work with real-time
+            operations. From first line of code to production, for growing businesses.
+          </p>
+
+          <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <BookACall className="btn-primary" />
+            <a href="#work" className="btn-ghost">
+              See what I&apos;m building <ArrowDown className="h-4 w-4" aria-hidden="true" />
+            </a>
           </div>
         </div>
       </div>

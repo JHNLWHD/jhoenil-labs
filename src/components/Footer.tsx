@@ -1,41 +1,61 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { siteConfig } from '@/data/content';
+
+const quickLinks = [
+  { href: '#work', label: 'Work' },
+  { href: '#services', label: 'Services' },
+  { href: '#portfolio', label: 'Portfolio' },
+  { href: '#about', label: 'About' },
+  { href: '#contact', label: 'Contact' },
+];
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
   return (
-    <footer className="bg-gray-900 text-white py-6 px-4 md:px-8">
-      <div className="container mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <div className="font-bold text-xl mb-4">Jhoenil Labs</div>
-            <p className="text-gray-400 text-sm mb-4">
-              Senior Software Engineer & Tech Consultant: Transforming systems, empowering businesses.
-            </p>
-          </div>
-          
-          <div>
-            <h3 className="font-medium mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li><Link to="#about" className="text-gray-400 hover:text-white text-sm">About</Link></li>
-              <li><Link to="#services" className="text-gray-400 hover:text-white text-sm">Services</Link></li>
-              <li><Link to="#portfolio" className="text-gray-400 hover:text-white text-sm">Portfolio</Link></li>
-              <li><Link to="#contact" className="text-gray-400 hover:text-white text-sm">Contact</Link></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="font-medium mb-4">Connect</h3>
-            <div className="flex space-x-4 mb-4">
-              <Link to="https://www.linkedin.com/in/jhoenilwahid/" target="_blank" className="text-gray-400 hover:text-white text-sm">LinkedIn</Link>
-              <Link to="https://www.facebook.com/aljhoenil.wahid/" target="_blank" className="text-gray-400 hover:text-white text-sm">Facebook</Link>
-            </div>
-            <p className="text-xs text-gray-500">
-              © {currentYear} Jhoenil Labs. All rights reserved.
-            </p>
-          </div>
+    <footer className="border-t border-border py-12">
+      <div className="section-shell grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div className="max-w-xs">
+          <div className="font-display text-xl font-medium">Jhoenil Labs</div>
+          <p className="mt-3 text-sm text-muted-foreground">
+            I build the software your business runs on — web, mobile, and systems that replace
+            manual work.
+          </p>
         </div>
+
+        <nav className="flex flex-col gap-2" aria-label="Footer">
+          <span className="mb-1 text-sm font-medium">Explore</span>
+          {quickLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        <div className="flex flex-col gap-2">
+          <span className="mb-1 text-sm font-medium">Connect</span>
+          <a href={siteConfig.linkedinUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+            LinkedIn
+          </a>
+          {siteConfig.githubUrl && (
+            <a href={siteConfig.githubUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+              GitHub
+            </a>
+          )}
+          <a href={`mailto:${siteConfig.email}`} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+            Email
+          </a>
+        </div>
+      </div>
+
+      <div className="section-shell mt-10 border-t border-border pt-6">
+        <p className="text-xs text-muted-foreground">
+          © {currentYear} Jhoenil Labs. All rights reserved.
+        </p>
       </div>
     </footer>
   );
