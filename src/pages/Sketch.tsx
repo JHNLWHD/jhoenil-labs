@@ -22,7 +22,6 @@ import { projectSlug } from '@/lib/projectSlug';
  * to the page rather than dropped into a clean grid.
  */
 
-const DOT_BG = { backgroundImage: 'radial-gradient(#00000018 1.5px, transparent 1.5px)', backgroundSize: '18px 18px' };
 const HAND = "font-['Caveat',cursive]";
 
 /** A hand-drawn "wobble" via irregular corner radii — no two elements match exactly. */
@@ -194,7 +193,7 @@ const Sketch = () => {
 
       <main>
         {/* HERO */}
-        <section className="relative overflow-hidden" style={DOT_BG}>
+        <section className="relative overflow-hidden">
           <div className="mx-auto max-w-5xl px-5 py-16 md:px-8 md:py-24">
             <span className={cn(HAND, 'mb-4 inline-block -rotate-1 border-2 border-dashed border-emerald-400 px-3 py-1 text-lg text-emerald-600')}>
               ✓ available for new projects
