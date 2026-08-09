@@ -43,7 +43,7 @@ export const currentWork: Engagement[] = [
     client: 'A global logistics company · Jeddah, Saudi Arabia',
     role: 'Sole developer',
     outcome:
-      'Building their operations CRM from the ground up and led their server migration to Hetzner — one engineer trusted with the whole platform.',
+      'Brought in to stabilize and improve their operations CRM, then led the server migration to Hetzner — one engineer trusted with the whole platform.',
     status: 'Active',
     tags: ['CRM Platform', 'Server Migration', 'Operations'],
   },
