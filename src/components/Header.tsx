@@ -5,7 +5,7 @@ import BookACall from '@/components/BookACall';
 const navLinks = [
   { href: '#work', label: 'Work' },
   { href: '#services', label: 'Services' },
-  { href: '#portfolio', label: 'Portfolio' },
+  { href: '/projects', label: 'Projects' },
   { href: '#about', label: 'About' },
 ];
 

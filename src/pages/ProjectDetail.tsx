@@ -60,7 +60,7 @@ const ProjectDetail = () => {
   return (
     <main className="min-h-screen bg-[#fdfbf5] px-5 py-8 text-neutral-800 md:px-8 md:py-12">
       <div className="mx-auto max-w-4xl">
-        <Link to="/#portfolio" className="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-neutral-800">
+        <Link to="/projects" className="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-neutral-800">
           <ArrowLeft className="h-4 w-4" aria-hidden="true" /> back to projects
         </Link>
 

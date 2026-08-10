@@ -4,7 +4,7 @@ import { siteConfig } from '@/data/content';
 const quickLinks = [
   { href: '#work', label: 'Work' },
   { href: '#services', label: 'Services' },
-  { href: '#portfolio', label: 'Portfolio' },
+  { href: '/projects', label: 'Projects' },
   { href: '#about', label: 'About' },
   { href: '#contact', label: 'Contact' },
 ];

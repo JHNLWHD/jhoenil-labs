@@ -47,7 +47,7 @@ const projectStatusStyles: Record<string, string> = {
 const navLinks = [
   { href: '#work', label: 'Work' },
   { href: '#services', label: 'Services' },
-  { href: '/projects', label: 'Portfolio' },
+  { href: '/projects', label: 'Projects' },
   { href: '#contact', label: 'Contact' },
 ];
 
@@ -242,7 +242,7 @@ const Sketch = () => {
             </div>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <BookACall className={cn(btnSolid, HAND, 'min-h-11 text-xl')} label="Book a free discovery call" withIcon={false} />
-              <Link to="/projects" className={cn(btnGhost, HAND, 'min-h-11 text-lg')}>view all work →</Link>
+              <Link to="/projects" className={cn(btnGhost, HAND, 'min-h-11 text-lg')}>view all projects →</Link>
             </div>
           </div>
         </section>
@@ -286,21 +286,6 @@ const Sketch = () => {
                   <span className="mx-auto mt-2 block max-w-[130px] text-[9px] uppercase leading-snug tracking-wide text-neutral-500">{m.label}</span>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* MORE WORK */}
-        <section id="portfolio" className="scroll-mt-16 border-t border-neutral-200">
-          <div className="mx-auto max-w-5xl px-5 py-14 md:px-8 md:py-20">
-            <h2 className={cn(HAND, '-rotate-1 text-4xl text-neutral-800')}>more work</h2>
-            <div className="mt-6 max-w-xl">
-              <p className="text-sm leading-relaxed text-neutral-600">
-                The three case studies above are the closest match for operations leaders. The full catalog includes older, public, private, and archived work across web, mobile, and systems.
-              </p>
-              <Link to="/projects" className={cn(btnSolid, HAND, 'mt-6 min-h-11 text-xl')}>
-                view all work →
-              </Link>
             </div>
           </div>
         </section>
