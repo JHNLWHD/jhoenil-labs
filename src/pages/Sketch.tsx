@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Lock, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import { usePostHog } from 'posthog-js/react';
 import BookACall from '@/components/BookACall';
 import { cn } from '@/lib/utils';
 import {
-  currentWork,
   metrics,
   projects,
   services,
@@ -39,20 +38,10 @@ const btnSolid = 'inline-flex items-center justify-center gap-2 border-2 border-
 const btnGhost = 'inline-flex items-center justify-center gap-2 border-2 border-dashed border-neutral-400 px-6 py-3 text-base text-neutral-500';
 const projectStatusStyles: Record<string, string> = {
   Active: 'border-emerald-300 bg-emerald-50 text-emerald-700',
+  Upcoming: 'border-amber-300 bg-amber-50 text-amber-700',
   Archived: 'border-neutral-300 bg-neutral-100 text-neutral-500',
   'Turned over': 'border-sky-300 bg-sky-50 text-sky-700',
   Delivered: 'border-neutral-300 bg-neutral-100 text-neutral-500',
-};
-const statusStyles: Record<string, string> = {
-  Active: 'border-emerald-300 bg-emerald-50 text-emerald-700',
-  Upcoming: 'border-amber-300 bg-amber-50 text-amber-700',
-  Delivered: 'border-neutral-300 bg-neutral-100 text-neutral-500',
-};
-const projectStatusOrder: Record<string, number> = {
-  Active: 0,
-  Delivered: 1,
-  'Turned over': 2,
-  Archived: 3,
 };
 
 const navLinks = [
@@ -79,8 +68,8 @@ const SketchHeader = () => {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <BookACall className={cn('hidden min-h-11 rotate-1 items-center border-2 border-neutral-700 px-4 py-1.5 md:inline-flex', HAND, 'text-lg')} withIcon={false} label="Book a 30-minute call" />
-          <BookACall className={cn('inline-flex min-h-11 items-center border-2 border-neutral-700 px-3 py-2 text-base md:hidden', HAND)} withIcon={false} label="Book a 30-minute call" />
+          <BookACall className={cn('hidden min-h-11 rotate-1 items-center border-2 border-neutral-700 px-4 py-1.5 md:inline-flex', HAND, 'text-lg')} withIcon={false} label="Book a free discovery call" />
+          <BookACall className={cn('inline-flex min-h-11 items-center border-2 border-neutral-700 px-3 py-2 text-base md:hidden', HAND)} withIcon={false} label="Book a free discovery call" />
           <button className="inline-flex min-h-11 min-w-11 items-center justify-center text-neutral-800 md:hidden" onClick={() => setOpen((v) => !v)} aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open}>
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
@@ -172,7 +161,7 @@ const SketchContactForm = () => {
 const Sketch = () => {
   useEffect(() => {
     const title = 'Jhoenil Wahid — software for real-world operations';
-    const description = 'I replace manual operations with web apps, mobile apps, and systems for growing businesses.';
+    const description = 'I help growing businesses replace manual operations with software that improves visibility.';
     document.title = title;
     document.querySelector<HTMLMetaElement>('meta[name="description"]')?.setAttribute('content', description);
     document.querySelector<HTMLMetaElement>('meta[property="og:title"]')?.setAttribute('content', title);
@@ -182,9 +171,7 @@ const Sketch = () => {
     document.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.setAttribute('href', siteConfig.url);
   }, []);
 
-  const orderedProjects = [...projects].sort((a, b) => (projectStatusOrder[a.status] ?? 9) - (projectStatusOrder[b.status] ?? 9));
-  const featuredProjects = orderedProjects.filter((p) => p.image !== '/placeholder.svg');
-  const archiveProjects = orderedProjects.filter((p) => p.image === '/placeholder.svg');
+  const featuredProjects = projects.filter((project) => project.featured);
   const tiltCycle = ['-rotate-1', 'rotate-1', '-rotate-2', 'rotate-2'];
 
   return (
@@ -199,15 +186,15 @@ const Sketch = () => {
               ✓ available for new projects
             </span>
           <h1 className={cn(HAND, 'max-w-2xl text-5xl leading-[1.05] text-neutral-800 sm:text-6xl md:text-7xl')}>
-              Software that replaces <span className="text-[hsl(var(--brand))]">manual work.</span>
+              Software that replaces <span className="text-[hsl(var(--brand))]">manual operations.</span>
           </h1>
           <p className="mt-5 max-w-md text-base leading-relaxed text-neutral-600">
-              I&apos;m {siteConfig.name} — I build web apps, mobile apps, and operational systems that
-              give growing businesses real-time visibility.
+              I&apos;m {siteConfig.name} — I help owners and operations leaders at growing businesses
+              replace spreadsheets, paperwork, and disconnected workflows with software that improves visibility.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-5">
-              <BookACall className={cn(btnSolid, HAND, 'min-h-11 text-xl')} label="Book a 30-minute call" withIcon={false} />
-              <a href="#portfolio" className={cn(btnGhost, HAND, 'min-h-11 text-lg')}>see the work →</a>
+              <BookACall className={cn(btnSolid, HAND, 'min-h-11 text-xl')} label="Book a free discovery call" withIcon={false} />
+              <a href="#work" className={cn(btnGhost, HAND, 'min-h-11 text-lg')}>see the work →</a>
             </div>
 
             <div className="relative mt-14 hidden max-w-md md:block">
@@ -222,33 +209,40 @@ const Sketch = () => {
           </div>
         </section>
 
-        {/* CURRENTLY WORKING WITH */}
+        {/* CASE STUDIES */}
         <section id="work" className="scroll-mt-16 border-t border-neutral-200 bg-white">
           <div className="mx-auto max-w-5xl px-5 py-14 md:px-8 md:py-20">
-            <h2 className={cn(HAND, '-rotate-1 text-4xl text-neutral-800')}>currently working with</h2>
+            <h2 className={cn(HAND, '-rotate-1 text-4xl text-neutral-800')}>case studies that replace manual work</h2>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-neutral-600">
-              A couple of active builds I&apos;m trusted to own end-to-end. Client details stay private; the outcomes are real.
+              Three anonymized examples of the operational problems I help make visible. Client details stay private; the outcomes are real.
             </p>
-            <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-              {currentWork.map((item, i) => (
-                <div key={item.client} className={cn('border-2 border-neutral-700 bg-[#fdfbf5] p-5', tiltCycle[i % tiltCycle.length])} style={wobble(i)}>
-                  <div className="flex items-center justify-between">
-                    <span className={cn(HAND, 'text-lg text-[hsl(var(--brand))]')}>{item.role}</span>
-                    <span className={cn('rounded-full border px-2 py-0.5 text-[10px] uppercase tracking-wide', statusStyles[item.status] ?? statusStyles.Delivered)}>{item.status}</span>
+            <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+              {featuredProjects.map((project, i) => (
+                <Link
+                  key={project.title}
+                  to={`/projects/${projectSlug(project.title)}`}
+                  className="group flex flex-col border-2 border-neutral-700 bg-[#fdfbf5] p-5 transition-transform hover:-translate-y-1"
+                  style={wobble(i)}
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <span className={cn(HAND, 'text-lg text-[hsl(var(--brand))]')}>{project.category}</span>
+                    <span className={cn('rounded-full border px-2 py-0.5 text-[10px] uppercase tracking-wide', projectStatusStyles[project.status])}>{project.status}</span>
                   </div>
-                  <h3 className="mt-2 text-base font-semibold text-neutral-800">{item.client}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-neutral-600">{item.outcome}</p>
+                  <h3 className="mt-3 text-base font-semibold text-neutral-800">{project.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-neutral-600">{project.problem}</p>
+                  <p className="mt-3 text-sm font-medium leading-relaxed text-[hsl(var(--brand))]">{project.outcome}</p>
                   <div className="mt-4 flex flex-wrap gap-1.5 border-t border-dashed border-neutral-300 pt-3">
-                    {item.tags.map((tag) => (
+                    {project.tags.map((tag) => (
                       <span key={tag} className="rounded-full border border-neutral-300 px-2 py-0.5 text-[10px] text-neutral-500">{tag}</span>
                     ))}
                   </div>
-                </div>
+                  <span className="mt-5 text-[10px] uppercase tracking-wide text-neutral-400 group-hover:text-neutral-800">read case study →</span>
+                </Link>
               ))}
             </div>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <BookACall className={cn(btnSolid, HAND, 'min-h-11 text-xl')} label="Book a 30-minute call" withIcon={false} />
-              <a href="#portfolio" className={cn(btnGhost, HAND, 'min-h-11 text-lg')}>see delivered work →</a>
+              <BookACall className={cn(btnSolid, HAND, 'min-h-11 text-xl')} label="Book a free discovery call" withIcon={false} />
+              <Link to="/projects" className={cn(btnGhost, HAND, 'min-h-11 text-lg')}>view all work →</Link>
             </div>
           </div>
         </section>
@@ -283,10 +277,10 @@ const Sketch = () => {
               <span className="hidden text-[10px] uppercase tracking-[0.2em] text-neutral-400 sm:block">selected outcomes</span>
             </div>
             <div className="grid grid-cols-2 gap-px overflow-hidden border-2 border-neutral-700 bg-neutral-700 sm:grid-cols-4">
-              {metrics.map((m, i) => (
+              {metrics.map((m) => (
                 <div
                   key={m.label}
-                  className={cn('min-w-0 bg-[#fdfbf5] px-3 py-5 text-center sm:px-4', tiltCycle[i % tiltCycle.length])}
+                  className="min-w-0 bg-[#fdfbf5] px-3 py-5 text-center sm:px-4"
                 >
                   <span className={cn(HAND, 'block text-3xl leading-none text-neutral-800 sm:text-4xl')}>{m.value}</span>
                   <span className="mx-auto mt-2 block max-w-[130px] text-[9px] uppercase leading-snug tracking-wide text-neutral-500">{m.label}</span>
@@ -296,45 +290,17 @@ const Sketch = () => {
           </div>
         </section>
 
-        {/* PORTFOLIO */}
+        {/* MORE WORK */}
         <section id="portfolio" className="scroll-mt-16 border-t border-neutral-200">
           <div className="mx-auto max-w-5xl px-5 py-14 md:px-8 md:py-20">
-            <h2 className={cn(HAND, '-rotate-1 text-4xl text-neutral-800')}>shipped &amp; sketched</h2>
-            <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {featuredProjects.map((project, i) => (
-                <Link
-                  key={project.title}
-                  to={`/projects/${projectSlug(project.title)}`}
-                  className={cn('group relative block border-2 border-neutral-700 bg-white p-2 transition-transform hover:-translate-y-1', tiltCycle[i % tiltCycle.length])}
-                >
-                  <div className="relative aspect-[16/10] overflow-hidden border border-neutral-300 bg-neutral-100">
-                    <img src={project.image} alt={`${project.title} preview`} loading="lazy" className="h-full w-full object-cover object-top" />
-                  </div>
-                  <div className="absolute -right-3 -top-3 h-7 w-7 rotate-12 rounded-full bg-[hsl(var(--brand)/0.18)]" aria-hidden="true" />
-                  <div className="p-3">
-                    <h3 className={cn(HAND, 'flex items-center justify-between gap-2 break-words text-xl text-neutral-800')}>
-                      {project.title}
-                      <ArrowUpRight className="h-4 w-4 flex-shrink-0 text-neutral-400" aria-hidden="true" />
-                    </h3>
-                    <span className={cn('mt-2 inline-block rounded-full border px-2 py-0.5 text-[10px] uppercase tracking-wide', projectStatusStyles[project.status])}>{project.status}</span>
-                    <p className="mt-1 text-xs text-[hsl(var(--brand))]">{project.outcome}</p>
-                  </div>
-                </Link>
-              ))}
-              {archiveProjects.map((project, i) => {
-                return (
-                  <Link key={project.title} to={`/projects/${projectSlug(project.title)}`} className={cn('flex flex-col justify-between border-2 border-dashed border-neutral-400 p-5', tiltCycle[i % tiltCycle.length])}>
-                    <div>
-                      <h3 className={cn(HAND, 'text-xl text-neutral-800')}>{project.title}</h3>
-                      <span className={cn('mt-2 inline-block rounded-full border px-2 py-0.5 text-[10px] uppercase tracking-wide', projectStatusStyles[project.status])}>{project.status}</span>
-                      <p className="mt-1 text-xs text-[hsl(var(--brand))]">{project.outcome}</p>
-                    </div>
-                    <span className="mt-4 flex items-center gap-1.5 text-[10px] uppercase tracking-wide text-neutral-400">
-                      {project.url ? <>view project →</> : <><Lock className="h-3 w-3" /> private</>}
-                    </span>
-                  </Link>
-                );
-              })}
+            <h2 className={cn(HAND, '-rotate-1 text-4xl text-neutral-800')}>more work</h2>
+            <div className="mt-6 max-w-xl">
+              <p className="text-sm leading-relaxed text-neutral-600">
+                The three case studies above are the closest match for operations leaders. The full catalog includes older, public, private, and archived work across web, mobile, and systems.
+              </p>
+              <Link to="/projects" className={cn(btnSolid, HAND, 'mt-6 min-h-11 text-xl')}>
+                view all work →
+              </Link>
             </div>
           </div>
         </section>
@@ -369,10 +335,10 @@ const Sketch = () => {
                   got a project to modernize?
                 </h2>
                 <p className="mt-3 max-w-sm text-sm leading-relaxed text-neutral-600">
-                  The fastest way to start is a quick call — 30 minutes, no pitch deck.
+                  Book a free 30-minute discovery call to map the manual workflow, find the biggest visibility gap, and decide whether working together makes sense. No pitch deck, no obligation.
                 </p>
                 <div className="mt-6">
-                  <BookACall className={cn(btnSolid, HAND, 'text-xl')} label="Book a 30-minute call" withIcon={false} />
+                  <BookACall className={cn(btnSolid, HAND, 'text-xl')} label="Book a free discovery call" withIcon={false} />
                 </div>
                 <div className={cn(HAND, 'mt-8 space-y-1.5 text-xl text-neutral-600')}>
                   <p><a href={`mailto:${siteConfig.email}`} className="hover:text-[hsl(var(--brand))]">{siteConfig.email}</a></p>

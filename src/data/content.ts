@@ -29,34 +29,6 @@ export const metrics: { value: string; label: string }[] = [
   { value: 'Sole dev', label: 'trusted with full platforms' },
 ];
 
-/** Active engagements — current work. Client + outcome, no live-demo link. */
-export type Engagement = {
-  client: string;
-  role: string;
-  outcome: string;
-  status: string;
-  tags: string[];
-};
-
-export const currentWork: Engagement[] = [
-  {
-    client: 'A global logistics company · Jeddah, Saudi Arabia',
-    role: 'Sole developer',
-    outcome:
-      'Brought in to stabilize and improve their operations CRM, then led the server migration to Hetzner — one engineer trusted with the whole platform.',
-    status: 'Active',
-    tags: ['CRM Platform', 'Server Migration', 'Operations'],
-  },
-  {
-    client: 'A solar energy business · Philippines',
-    role: 'Sole developer',
-    outcome:
-      'Building an operations portal and a customer-facing mobile app to run their solar business and keep customers in the loop.',
-    status: 'Upcoming',
-    tags: ['Operations Portal', 'Mobile App', 'Web'],
-  },
-];
-
 /** Three consolidated, outcome-framed offers. */
 export type Service = {
   title: string;
@@ -89,19 +61,66 @@ export const services: Service[] = [
   },
 ];
 
-/** Delivered, linkable projects — screenshot-led. */
+/** Delivered and active projects; featured entries use text-led case studies when images are private. */
 export type Project = {
   title: string;
   outcome: string;
   description: string;
+  problem?: string;
+  featured?: boolean;
   url: string | null; // null => private system, no public link
-  image: string; // screenshot; /placeholder.svg until captured
+  image: string; // screenshot; /placeholder.svg for private or text-led case studies
   category: 'Web' | 'Mobile' | 'System';
   tags: string[];
-  status: 'Active' | 'Archived' | 'Turned over' | 'Delivered';
+  status: 'Active' | 'Upcoming' | 'Archived' | 'Turned over' | 'Delivered';
 };
 
 export const projects: Project[] = [
+  {
+    title: 'Logistics Operations CRM',
+    problem:
+      'A global logistics business needed a more stable operations CRM and a dependable server foundation.',
+    outcome:
+      'Stabilized and improved the operations CRM, then led the server migration to Hetzner.',
+    description:
+      'An anonymized case study covering end-to-end platform ownership for a logistics operation in Jeddah, Saudi Arabia.',
+    url: null,
+    image: '/placeholder.svg',
+    category: 'System',
+    tags: ['CRM', 'Operations', 'Server migration'],
+    status: 'Active',
+    featured: true,
+  },
+  {
+    title: 'FMCG Sales & Inventory',
+    problem:
+      'Manual paperwork made sales and inventory visibility slow and difficult to trust.',
+    outcome:
+      'Replaced manual tracking with real-time sales and inventory visibility for an FMCG distributor tracking ₱2M+ in monthly sales.',
+    description:
+      'An anonymized sales and inventory system built around the daily operational work of a fast-moving consumer goods distributor.',
+    url: null,
+    image: '/placeholder.svg',
+    category: 'System',
+    tags: ['FMCG', 'Sales', 'Inventory'],
+    status: 'Delivered',
+    featured: true,
+  },
+  {
+    title: 'Solar Operations Portal & Mobile App',
+    problem:
+      'A solar energy business needs one operational system and a customer-facing way to keep customers in the loop.',
+    outcome:
+      'In progress: building an operations portal and customer-facing mobile app for a solar business in the Philippines.',
+    description:
+      'An active case study focused on connecting internal operations with a clearer customer experience. Final outcomes will be added after approval.',
+    url: null,
+    image: '/placeholder.svg',
+    category: 'Mobile',
+    tags: ['Operations portal', 'Mobile app', 'Customer experience'],
+    status: 'Upcoming',
+    featured: true,
+  },
   {
     title: 'Kodigo Eleksyon 2025',
     outcome: '3.57K unique visitors · 15.1K page views during the 2025 election period.',

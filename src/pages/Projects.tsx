@@ -1,11 +1,33 @@
 import React from 'react';
+import { useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ArrowLeft, ArrowUpRight, Lock } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { projects } from '@/data/content';
+import { projects, siteConfig } from '@/data/content';
 
 const Projects = () => {
+  useEffect(() => {
+    const title = 'Projects & systems — Jhoenil Wahid';
+    const description = 'A fuller collection of Jhoenil Wahid\'s delivered web, mobile, and operational systems.';
+    document.title = title;
+
+    const setMeta = (selector: string, content: string) => {
+      const element = document.querySelector<HTMLMetaElement>(selector);
+      if (element) element.content = content;
+    };
+
+    setMeta('meta[name="description"]', description);
+    setMeta('meta[property="og:title"]', title);
+    setMeta('meta[property="og:description"]', description);
+    setMeta('meta[property="og:url"]', `${siteConfig.url}/projects`);
+    setMeta('meta[name="twitter:title"]', title);
+    setMeta('meta[name="twitter:description"]', description);
+
+    const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (canonical) canonical.href = `${siteConfig.url}/projects`;
+  }, []);
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
@@ -36,12 +58,22 @@ const Projects = () => {
                     className="edge-card group flex flex-col overflow-hidden"
                   >
                     <div className="relative aspect-[16/10] overflow-hidden border-b border-border bg-secondary">
-                      <img
-                        src={project.image}
-                        alt={`${project.title} preview`}
-                        loading="lazy"
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                      />
+                      {project.featured ? (
+                        <div className="flex h-full flex-col justify-between bg-[#fdfbf5] p-5">
+                          <div>
+                            <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">anonymized case study</p>
+                            <p className="mt-3 font-['Caveat',cursive] text-3xl text-foreground">{project.category}</p>
+                          </div>
+                          <p className="text-xs uppercase tracking-wide text-muted-foreground">{project.tags.join(' · ')}</p>
+                        </div>
+                      ) : (
+                        <img
+                          src={project.image}
+                          alt={`${project.title} preview`}
+                          loading="lazy"
+                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                        />
+                      )}
                       <span className="absolute left-3 top-3 rounded-full bg-background/90 px-2.5 py-1 text-xs font-medium text-foreground backdrop-blur">
                         {project.category}
                       </span>
