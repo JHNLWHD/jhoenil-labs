@@ -34,9 +34,11 @@ const Projects = () => {
       <main className="flex-grow">
         <section className="py-16 md:py-24">
           <div className="section-shell">
-            <Link to="/" className="btn-ghost mb-6">
-              <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Back
-            </Link>
+            <div className="mb-6">
+              <Link to="/" className="btn-ghost">
+                <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Back
+              </Link>
+            </div>
             <span className="eyebrow">All work</span>
             <h1 className="mt-4 text-4xl font-medium md:text-5xl">Projects &amp; systems</h1>
             <p className="mt-4 max-w-xl text-muted-foreground">
