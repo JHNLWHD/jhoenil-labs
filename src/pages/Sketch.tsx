@@ -47,7 +47,7 @@ const projectStatusStyles: Record<string, string> = {
 const navLinks = [
   { href: '#work', label: 'Work' },
   { href: '#services', label: 'Services' },
-  { href: '#portfolio', label: 'Portfolio' },
+  { href: '/projects', label: 'Portfolio' },
   { href: '#contact', label: 'Contact' },
 ];
 
