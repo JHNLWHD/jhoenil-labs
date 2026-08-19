@@ -3,10 +3,11 @@ import { Menu, X } from 'lucide-react';
 import BookACall from '@/components/BookACall';
 
 const navLinks = [
-  { href: '#work', label: 'Work' },
-  { href: '#services', label: 'Services' },
+  { href: '/#work', label: 'Work' },
+  { href: '/#services', label: 'Services' },
   { href: '/projects', label: 'Projects' },
-  { href: '#about', label: 'About' },
+  { href: '/insights', label: 'Insights' },
+  { href: '/#about', label: 'About' },
 ];
 
 const Header = () => {

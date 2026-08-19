@@ -2,11 +2,12 @@ import React from 'react';
 import { siteConfig } from '@/data/content';
 
 const quickLinks = [
-  { href: '#work', label: 'Work' },
-  { href: '#services', label: 'Services' },
+  { href: '/#work', label: 'Work' },
+  { href: '/#services', label: 'Services' },
   { href: '/projects', label: 'Projects' },
-  { href: '#about', label: 'About' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/insights', label: 'Insights' },
+  { href: '/#about', label: 'About' },
+  { href: '/#contact', label: 'Contact' },
 ];
 
 const Footer = () => {

@@ -1,0 +1,96 @@
+export const metadata = {
+  slug: 'client-project-governance',
+  title: 'The Client Owns the Assets. The Project System Owns the Truth.',
+  excerpt: 'A practical operating model for keeping a freelancer-led software project secure, visible, and easy to hand over.',
+  publishedAt: 'August 19, 2026',
+  readingTime: '6 min read',
+  aiAssisted: true,
+  sources: [
+    {
+      label: 'GitHub: Repository roles for organizations',
+      url: 'https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization',
+    },
+    {
+      label: 'GitHub: Understanding GitHub Actions',
+      url: 'https://docs.github.com/en/actions/get-started/understand-github-actions',
+    },
+    {
+      label: 'OWASP: Secrets Management Cheat Sheet',
+      url: 'https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html',
+    },
+    {
+      label: 'GitHub: Deployment environments',
+      url: 'https://docs.github.com/en/actions/concepts/workflows-and-actions/deployment-environments',
+    },
+  ],
+};
+
+A client should never have to chase project information across chat threads, personal accounts, and a freelancer's private tools. A good setup makes ownership, decisions, progress, and handover clear from the beginning.
+
+> The client owns the assets and accounts; the project system owns the truth; the freelancer owns the implementation.
+
+## Start with ownership and access
+
+Put source code in a GitHub organization or repository owned by the client. The freelancer receives their own access, at the level needed for the work, and that access can be removed without disrupting the project. GitHub's repository roles are designed for this kind of least-privilege access.
+
+The same rule applies to every critical account:
+
+- Domain and DNS
+- Hosting, cloud, and database
+- Analytics, email, SMS, payments, and third-party APIs
+- Source control, deployment, and monitoring
+
+Do not share master credentials. Give each person an individual account, require MFA, and keep production secrets in the hosting or CI secret manager, not in source code, chat, or a passed-around `.env` file. OWASP's guidance is a useful baseline for secrets management.
+
+## Keep one source of truth
+
+Choose one project system: ClickUp, Linear, Jira, GitHub Projects, or another tool the client can access. Requirements, tasks, bugs, decisions, priorities, and target dates belong there. Slack, WhatsApp, and email are fine for conversation, but important decisions should be recorded back in the project system.
+
+This is the simplest cure for scattered systems: everyone can see what was agreed, what is in progress, and what is blocked without reconstructing a conversation from multiple places.
+
+## Use a release path the client can see
+
+A practical default is:
+
+> Task → Development → Review → Staging → Client approval → Production
+
+That is very different from "developer → production." CI/CD should build, test, and deploy repeatable changes instead of relying on someone manually copying files into production. GitHub Actions is one example of a platform that can automate those build, test, and deployment steps.
+
+Give the client a staging or preview link before release. GitHub Actions deployment environments can represent staging and production, require approval before deployment, and protect environment secrets. The client can inspect the actual change before it becomes public.
+
+## Agree what "done" means before work starts
+
+"Build the contact page" leaves too much open to interpretation. A better task says:
+
+> The form accepts Name, Email, and Message; sends to the agreed inbox; validates invalid email addresses; works on mobile; and is available on staging for approval.
+
+This definition of done gives both sides a shared target. It reduces rework, missed expectations, and arguments about whether a task was actually finished.
+
+A competent freelancer makes sure expectations are clear on both sides and leads the conversation needed to get there.
+
+## Control changes and communicate progress
+
+A request outside the agreed scope should follow a short, explicit path: new request → estimate time and cost impact → client approval → work begins. That protects the timeline and budget from quietly expanding while expectations stay the same.
+
+For updates, a weekly structured status is usually more useful than a daily time log. Update the project board continuously, raise blockers and major decisions immediately, and keep a staging link ready for review.
+
+A weekly call is ideal for demonstrating progress and giving the client a chance to ask questions.
+
+- **Done:** X
+- **In progress:** Y
+- **Next:** Z
+- **Blocked:** None
+- **Target:** Friday
+
+## Make handover part of the work
+
+Before an engagement closes, confirm:
+
+- Documentation and deployment instructions
+- Client ownership and access for all accounts and infrastructure
+- Environment and configuration notes
+- Backup and recovery instructions
+- Outstanding issues and known limitations
+- Freelancer access revoked where appropriate
+
+The goal is simple: the client should own more than a working website. They should have a project they can understand, operate, and continue without being dependent on one person.

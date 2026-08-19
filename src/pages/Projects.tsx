@@ -1,10 +1,10 @@
-import React from 'react';
 import { useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { ArrowLeft, ArrowUpRight, Lock } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Lock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { projects, siteConfig } from '@/data/content';
+import { projectSlug } from '@/lib/projectSlug';
 
 const Projects = () => {
   useEffect(() => {
@@ -48,15 +48,11 @@ const Projects = () => {
             <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {projects.map((project) => {
                 const isPrivate = !project.url;
-                const CardTag: React.ElementType = isPrivate ? 'div' : 'a';
-                const linkProps = isPrivate
-                  ? {}
-                  : { href: project.url as string, target: '_blank', rel: 'noopener noreferrer' };
 
                 return (
-                  <CardTag
+                  <Link
                     key={project.title}
-                    {...linkProps}
+                    to={`/projects/${projectSlug(project.title)}`}
                     className="edge-card group flex flex-col overflow-hidden"
                   >
                     <div className="relative aspect-[16/10] overflow-hidden border-b border-border bg-secondary">
@@ -86,7 +82,7 @@ const Projects = () => {
                         {isPrivate ? (
                           <Lock className="mt-1 h-4 w-4 flex-shrink-0 text-muted-foreground" aria-hidden="true" />
                         ) : (
-                          <ArrowUpRight className="mt-1 h-4 w-4 flex-shrink-0 text-muted-foreground transition-all group-hover:text-[hsl(var(--brand))]" aria-hidden="true" />
+                          <ArrowRight className="mt-1 h-4 w-4 flex-shrink-0 text-muted-foreground transition-all group-hover:text-[hsl(var(--brand))]" aria-hidden="true" />
                         )}
                       </h2>
                       <p className="mt-2 text-sm font-medium text-[hsl(var(--brand))]">{project.outcome}</p>
@@ -94,7 +90,7 @@ const Projects = () => {
                         {project.description}
                       </p>
                     </div>
-                  </CardTag>
+                  </Link>
                 );
               })}
             </div>

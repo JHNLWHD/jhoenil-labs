@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import { usePostHog } from 'posthog-js/react';
 import BookACall from '@/components/BookACall';
+import Footer from '@/components/Footer';
 import { cn } from '@/lib/utils';
 import {
   metrics,
@@ -291,7 +292,7 @@ const Sketch = () => {
         </section>
 
         {/* ABOUT */}
-        <section className="border-t border-neutral-200 bg-white">
+        <section id="about" className="scroll-mt-16 border-t border-neutral-200 bg-white">
           <div className="mx-auto max-w-5xl px-5 py-14 md:px-8 md:py-20">
             <div className="border-2 border-neutral-700 p-7" style={wobble(3)}>
               <span className={cn(HAND, 'text-2xl text-[hsl(var(--brand))]')}>about me</span>
@@ -342,16 +343,7 @@ const Sketch = () => {
         </section>
       </main>
 
-      <footer className="border-t border-neutral-200 bg-white">
-        <div className={cn(HAND, 'mx-auto flex max-w-5xl flex-col gap-2 px-5 py-8 text-lg text-neutral-500 md:flex-row md:items-center md:justify-between md:px-8')}>
-          <span>© {new Date().getFullYear()} {siteConfig.name}</span>
-          <span className="flex flex-wrap gap-4">
-            <Link to="/" className="hover:text-[hsl(var(--brand))]">main</Link>
-            <a href={`mailto:${siteConfig.email}`} className="hover:text-[hsl(var(--brand))]">email</a>
-            <a href={siteConfig.linkedinUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[hsl(var(--brand))]">LinkedIn</a>
-          </span>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

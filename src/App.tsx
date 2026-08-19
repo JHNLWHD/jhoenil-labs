@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Projects from "./pages/Projects";
 import Sketch from "./pages/Sketch";
 import ProjectDetail from "./pages/ProjectDetail";
+import Insights from "./pages/Insights";
+import Article from "./pages/Article";
 import NotFound from "./pages/NotFound";
 
 const App = () => (
@@ -14,6 +16,8 @@ const App = () => (
         <Route path="/" element={<Sketch />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/:slug" element={<ProjectDetail />} />
+        <Route path="/insights" element={<Insights />} />
+        <Route path="/insights/:slug" element={<Article />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
